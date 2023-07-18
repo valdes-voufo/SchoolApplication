@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<StackPane minWidth="400.0" stylesheets="@main-right.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cosmos.schoolapp.controller.MainContentController">
+    <AnchorPane style="-fx-background-color: #FFFFFF;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <VBox prefHeight="100.0" prefWidth="974.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+           <AnchorPane minHeight="30.0" prefHeight="30.0" style="-fx-background-color: #131022;">
+              <VBox.margin>
+                 <Insets />
+              </VBox.margin>
+
+              <HBox alignment="CENTER_RIGHT" minHeight="30.0" prefHeight="30.0" prefWidth="974.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                 <Pane minHeight="40.0" prefHeight="40.0" prefWidth="844.0" />
+                 <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                    <HBox.margin>
+                       <Insets right="10.0" />
+                    </HBox.margin>
+                    <Image url="@../../../img/main-home/menu.png" />
+                 </ImageView>
+                 <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                    <HBox.margin>
+                       <Insets right="10.0" />
+                    </HBox.margin>
+                    <Image url="@../../../img/main-home/message.png" />
+                 </ImageView>
+                 <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                    <HBox.margin>
+                       <Insets right="10.0" />
+                    </HBox.margin>
+                    <Image url="@../../../img/main-home/bell.png" />
+                 </ImageView>
+                 <Label prefHeight="17.0" prefWidth="100.0" text="Floriane Monga" textFill="#f8f8f8">
+                    <HBox.margin>
+                       <Insets right="10.0" />
+                    </HBox.margin>
+                 </Label>
+                 <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" styleClass="profil-image">
+                    <HBox.margin>
+                       <Insets right="40.0" />
+                    </HBox.margin>
+                    <Image url="@../../../img/main-home/profil.png" />
+                 </ImageView>
+              </HBox>
+           </AnchorPane>
+
+
+
+        </VBox>
+    </AnchorPane>
+
+</StackPane>

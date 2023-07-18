@@ -1,0 +1,21 @@
+﻿matricule;numero;nom;prenom;date de naissance;lieu de naissance;classe;redoublant;telephone;date d`inscription;payement;genre
+A001;1;voufo; valdes max;01.03.1999;douala;sil;non;658453421;10.07.2022;15000;masculin
+A002;2;tonta;manu;02.03.1999;  loum;sil;non;657453282;11.07.2022;30000;feminin
+A003;3;zuge;nani;03.03.1999;  penja;ce1;non;657345289;12.07.2022;70000;masculin
+A004;4;zuto;tontinar cap foli;04.03.1999;  djombe;cp;oui;678345623;13.07.2022;30000;feminin
+A005;5;titit;soni;04.06.2001;  bua;sil;non;698547653;14.07.2022;70000;masculin
+A006;6;saso;larissa;06.03.1999;  kola;cm1;non;677345278;15.07.2022;70000;feminin
+A007;7;jita; jane sonia brand;07.03.1999;  lala;cm2;non;678345623;16.07.2022;70000;masculin
+A008;8;wero;pati;03.11.2000;  banga;cm2;non;699345274;17.07.2022;70000;feminin
+A009;9;jire;mimi titi;09.03.1999;bafoussam;cm1;oui;677546342;18.07.2022;30000;feminin
+A010;10;lopgu;moussa;15.07.2002;  douala;ce2;non;678456389;19.07.2022;15000;masculin
+A011;11;potre;jean parpin;11.03.1999;  loum;sil;non;699763532;20.07.2022;70000;feminin
+A012;12;magne;cuvette;12.03.1999;  aachen;cp;oui;676354823;21.07.2022;30000;feminin
+A013;13;zonloua;tintin;30.01.1998;   penja;sil;non;678465438;22.07.2022;70000;masculin
+A014;15;toto;lolo kala;14.03.1999;   douala;cm2;non;675463467;23.07.2022;70000;feminin
+A015;14;massom;jean parpin titi;06.12.2000;manjo;sil;non;652325698;20.08.2022;40000;masculin
+A016;16;yota;sasa tana;01.06.2001;  baffoussam;cp;non;635452595;20.09.2022;50000;feminin
+A017;17;amadou;zidane ;17.03.1999;  douala;sil;non;695854526;18.07.2022;60000;masculin
+A018;18;bilefeck;magrace sraci;12.02.2002;  loum;cm1;non;695632158;15.08.2022;60000;masculin
+A019;19;ougi;valentin tresor ali;19.03.1999;  douala;ce2;non;685626531;15.08.2022;70000;feminin
+A020;20;watoum;audre ange;20.11.2003;   douala;cm2;oui;652442155;17.12.2022;1000;masculin

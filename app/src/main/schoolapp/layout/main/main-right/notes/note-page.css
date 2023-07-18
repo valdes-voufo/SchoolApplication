@@ -1,0 +1,11 @@
+.comboboxx {
+    -fx-background-color: black;
+    -fx-text-fill: red;
+}
+
+
+.note-container {
+    -fx-border-color: black;
+    -fx-border-width: 4;
+
+}
