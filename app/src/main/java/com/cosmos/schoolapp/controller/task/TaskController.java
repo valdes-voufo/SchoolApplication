@@ -45,7 +45,7 @@ public class TaskController implements MyController {
   }
 
   public void goToClassroom(ActionEvent actionEvent) {
-    //  mainContentController.switchContent(ctx.getBean(ClassroomController.class).getPane());
+     mainContentController.switchContent(ctx.getBean(ClassroomController.class).getPane());
   }
 
   public void goToStudent(ActionEvent actionEvent) {
@@ -67,7 +67,7 @@ public class TaskController implements MyController {
     ctx.getBean(InscriptionController.class).buildPaneRecursive();
     // ctx.getBean(NoteController.class).buildPaneRecursive();
     //  ctx.getBean(PaymentController.class).buildPaneRecursive();
-    // ctx.getBean(ClassroomController.class).buildPaneRecursive();
+     ctx.getBean(ClassroomController.class).buildPaneRecursive();
 
     pane = Loader.load(resource, ctx);
     return pane;

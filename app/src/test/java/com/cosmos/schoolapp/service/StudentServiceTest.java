@@ -1,5 +1,6 @@
 package com.cosmos.schoolapp.service;
 
+import com.cosmos.schoolapp.TestData;
 import com.cosmos.schoolapp.data.entity.Student;
 import com.cosmos.schoolapp.data.repository.StudentRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -8,9 +9,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;

@@ -1,4 +1,4 @@
-package com.cosmos.schoolapp.service;
+package com.cosmos.schoolapp;
 
 import com.cosmos.schoolapp.data.builder.StudentBuilder;
 import com.cosmos.schoolapp.data.entity.Student;

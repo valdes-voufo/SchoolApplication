@@ -14,19 +14,22 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
+import org.apache.commons.logging.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.core.io.Resource;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.logging.Logger;
 
 // @Controller
-@Controller
+@Component
 public class InscriptionController implements Initializable, MyController {
   public TextField lastname;
   public TextField firstname;
@@ -65,9 +68,7 @@ public class InscriptionController implements Initializable, MyController {
   }
 
   @Override
-  public void initialize(URL url, ResourceBundle resourceBundle) {
-
-  }
+  public void initialize(URL url, ResourceBundle resourceBundle) {}
 
   public void performInscription(ActionEvent actionEvent) {
 
@@ -112,24 +113,33 @@ public class InscriptionController implements Initializable, MyController {
     return Gender.FEMALE;
   }
 
-  private boolean checkFields() {
-    Alert alert2 =
-        AlertBuilder.alert("ERREUR", "un des Champ est mal remplis", Alert.AlertType.WARNING);
-    alert2.showAndWait();
-    // TODO: 18.07.2023  implement me
+  protected boolean checkFields() {
+    if (lastname.textProperty().isEmpty().get()) {
+      AlertBuilder.error("Erreur", "Prenom non remplis");
+      return false;
+    }
+    if (firstname.textProperty().isEmpty().get()) {
+      AlertBuilder.error("Erreur", "Prenom non remplis");
+      return false;
+    }
+    if (!maleCheckBox.isSelected() && !femaleCheckBox.isSelected()) {
+      AlertBuilder.error("Erreur", "Sexe non remplis");
+      return false;
+    }
+    if (address.textProperty().isEmpty().get()) {
+      AlertBuilder.error("Erreur", "Adresse non remplis");
+      return false;
+    }
+    if (birthPlace.textProperty().isEmpty().get()) {
+      AlertBuilder.error("Erreur", "Lieu de Naissance non remplis");
+      return false;
+    }
     return true;
   }
-
-
-
-
-
-
 
   public void pictureImport(ActionEvent actionEvent) {}
 
   public void payedAmount(ActionEvent actionEvent) {}
-
 
   public void CheckMale(ActionEvent actionEvent) {
     femaleCheckBox.setSelected(false);
@@ -139,6 +149,5 @@ public class InscriptionController implements Initializable, MyController {
   public void checkFemale(ActionEvent actionEvent) {
     maleCheckBox.setSelected(false);
     femaleCheckBox.setSelected(true);
-
   }
 }

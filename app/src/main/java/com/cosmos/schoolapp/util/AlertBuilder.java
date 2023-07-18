@@ -10,6 +10,7 @@ import javafx.scene.text.TextAlignment;
 import javafx.util.Duration;
 
 public class AlertBuilder {
+  static boolean testing = false;
 
   private static Alert createAlert(String title, String message, Alert.AlertType type) {
     Alert alert = new Alert(type);
@@ -29,6 +30,13 @@ public class AlertBuilder {
 
   public static Alert alert(String title, String message, Alert.AlertType type) {
     return createAlert(title, message, type);
+  }
+
+  public static void error(String title, String message) {
+    Alert alert = createAlert(title, message, Alert.AlertType.ERROR);
+    if (!testing) {
+      alert.showAndWait();
+    }
   }
 
   public static void alert(String title, String message, double time, Alert.AlertType type) {

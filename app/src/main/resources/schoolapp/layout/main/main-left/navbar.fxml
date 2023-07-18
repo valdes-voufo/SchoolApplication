@@ -26,9 +26,10 @@
          <padding>
             <Insets left="3.0" right="3.0" />
          </padding>
-         <Label text="LA BRAVOURE">
-
-         </Label>
+         <Label text="LA BRAVOURE" textFill="#1d1d1e">
+            <font>
+               <Font name="Cambria Bold" size="24.0" />
+            </font></Label>
       </HBox>
       <Button fx:id="home" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#goToHome" prefHeight="50.0" prefWidth="200.0" styleClass="button2" text="  Acceuil" textAlignment="CENTER" textFill="#fffbfb">
          <graphic>
