@@ -1,7 +1,7 @@
 package com.cosmos.schoolapp.controller;
 
 import com.cosmos.schoolapp.controller.task.TaskController;
-import com.cosmos.schoolapp.scene.Loader;
+import com.cosmos.schoolapp.util.Loader;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -44,11 +44,11 @@ public class NavItemController implements MyController {
   public void gotToOthers(MouseEvent mouseEvent) {}
 
   public void goToHome(ActionEvent actionEvent) {
-  //  mainContentController.switchContent(ctx.getBean(HomePageController.class).getPane());
+    //  mainContentController.switchContent(ctx.getBean(HomePageController.class).getPane());
   }
 
   public void goToDashboard(ActionEvent actionEvent) {
-  //  mainContentController.switchContent(ctx.getBean(DashboardController.class).getPane());
+    //  mainContentController.switchContent(ctx.getBean(DashboardController.class).getPane());
   }
 
   public void goToTask(ActionEvent actionEvent) {
@@ -56,11 +56,11 @@ public class NavItemController implements MyController {
   }
 
   public void goToOthers(ActionEvent actionEvent) {
-  //  mainContentController.switchContent(ctx.getBean(StudentController.class).getPane());
+    //  mainContentController.switchContent(ctx.getBean(StudentController.class).getPane());
   }
 
   public void goToStudent(ActionEvent actionEvent) {
- //   mainContentController.switchContent(ctx.getBean(MainStudentController.class).getPane());
+    //   mainContentController.switchContent(ctx.getBean(MainStudentController.class).getPane());
   }
 
   @Override

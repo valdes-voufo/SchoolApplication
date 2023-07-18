@@ -1,7 +1,7 @@
 package com.cosmos.schoolapp.util.controller;
 
 import com.cosmos.schoolapp.controller.MyController;
-import com.cosmos.schoolapp.scene.Loader;
+import com.cosmos.schoolapp.util.Loader;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import org.springframework.beans.factory.annotation.Value;

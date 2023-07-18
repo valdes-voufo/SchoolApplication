@@ -1,9 +1,9 @@
 package com.cosmos.schoolapp.util.controller;
 
 import com.cosmos.schoolapp.controller.MyController;
-import com.cosmos.schoolapp.entity.Student;
-import com.cosmos.schoolapp.messages.NoteMessage;
-import com.cosmos.schoolapp.scene.Loader;
+import com.cosmos.schoolapp.data.entity.Student;
+import com.cosmos.schoolapp.util.messages.NoteMessage;
+import com.cosmos.schoolapp.util.Loader;
 import com.cosmos.schoolapp.util.Vanol;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;

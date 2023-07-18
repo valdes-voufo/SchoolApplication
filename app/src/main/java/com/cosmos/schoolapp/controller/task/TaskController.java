@@ -2,7 +2,7 @@ package com.cosmos.schoolapp.controller.task;
 
 import com.cosmos.schoolapp.controller.MainContentController;
 import com.cosmos.schoolapp.controller.MyController;
-import com.cosmos.schoolapp.scene.Loader;
+import com.cosmos.schoolapp.util.Loader;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
@@ -37,19 +37,19 @@ public class TaskController implements MyController {
 
   public void goToNotes(ActionEvent actionEvent) {
 
- //   mainContentController.switchContent(ctx.getBean(NoteController.class).getPane());
+    //   mainContentController.switchContent(ctx.getBean(NoteController.class).getPane());
   }
 
   public void goToPayment(ActionEvent actionEvent) {
-   // mainContentController.switchContent(ctx.getBean(PaymentController.class).getPane());
+    // mainContentController.switchContent(ctx.getBean(PaymentController.class).getPane());
   }
 
   public void goToClassroom(ActionEvent actionEvent) {
-  //  mainContentController.switchContent(ctx.getBean(ClassroomController.class).getPane());
+    //  mainContentController.switchContent(ctx.getBean(ClassroomController.class).getPane());
   }
 
   public void goToStudent(ActionEvent actionEvent) {
-  //  mainContentController.switchContent(ctx.getBean(MainStudentController.class).getPane());
+    //  mainContentController.switchContent(ctx.getBean(MainStudentController.class).getPane());
   }
 
   public void goToStatics(ActionEvent actionEvent) {}
@@ -65,9 +65,9 @@ public class TaskController implements MyController {
   @Override
   public Pane buildPaneRecursive() {
     ctx.getBean(InscriptionController.class).buildPaneRecursive();
-   // ctx.getBean(NoteController.class).buildPaneRecursive();
-  //  ctx.getBean(PaymentController.class).buildPaneRecursive();
-   // ctx.getBean(ClassroomController.class).buildPaneRecursive();
+    // ctx.getBean(NoteController.class).buildPaneRecursive();
+    //  ctx.getBean(PaymentController.class).buildPaneRecursive();
+    // ctx.getBean(ClassroomController.class).buildPaneRecursive();
 
     pane = Loader.load(resource, ctx);
     return pane;

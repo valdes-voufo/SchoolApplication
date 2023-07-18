@@ -1,10 +1,10 @@
 package com.cosmos.schoolapp.util.controller;
 
-import com.cosmos.schoolapp.StudentBuilder;
+import com.cosmos.schoolapp.data.builder.StudentBuilder;
 import com.cosmos.schoolapp.controller.MyController;
-import com.cosmos.schoolapp.entity.Student;
-import com.cosmos.schoolapp.scene.Loader;
-import com.cosmos.schoolapp.schoolModel.people.person.Gender;
+import com.cosmos.schoolapp.data.entity.Student;
+import com.cosmos.schoolapp.util.Loader;
+import com.cosmos.schoolapp.data.Gender;
 import com.cosmos.schoolapp.service.ClassroomService;
 import com.cosmos.schoolapp.service.StudentService;
 import com.cosmos.schoolapp.util.Vanol;
@@ -131,10 +131,10 @@ public class StudentController implements Initializable, MyController {
     name.setText(student.lastname);
     surname.setText(student.firstname);
 
-    if (Objects.equals(student.getGender(), Gender.MASCULIN)) {
+    if (Objects.equals(student.getGender(), Gender.MALE)) {
       masculinCheckBox.setSelected(true);
       femininCheckBox.setSelected(false);
-    } else if (Objects.equals(student.getGender(), Gender.FEMININ)) {
+    } else if (Objects.equals(student.getGender(), Gender.FEMALE)) {
       masculinCheckBox.setSelected(false);
       femininCheckBox.setSelected(true);
     }
@@ -200,7 +200,7 @@ public class StudentController implements Initializable, MyController {
             .setMotherNumber("64874289")
             .setBirthDate(selectedDate)
             .setBirthPlace("BALENG")
-            .setGender(Gender.MASCULIN)
+            .setGender(Gender.MALE)
             .setFatherEmail("vanol@gmail.com")
             .build();
 

@@ -1,10 +1,10 @@
 package com.cosmos.schoolapp.service;
 
-import com.cosmos.schoolapp.RepositoryListener;
-import com.cosmos.schoolapp.entity.ClassRoom;
-import com.cosmos.schoolapp.entity.Level;
-import com.cosmos.schoolapp.repository.ClassroomRepository;
-import com.cosmos.schoolapp.repository.LevelRepository;
+import com.cosmos.schoolapp.data.RepositoryListener;
+import com.cosmos.schoolapp.data.entity.ClassRoom;
+import com.cosmos.schoolapp.data.entity.Level;
+import com.cosmos.schoolapp.data.repository.ClassroomRepository;
+import com.cosmos.schoolapp.data.repository.LevelRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Service;

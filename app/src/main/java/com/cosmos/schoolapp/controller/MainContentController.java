@@ -1,7 +1,7 @@
 package com.cosmos.schoolapp.controller;
 
 import com.cosmos.schoolapp.controller.task.TaskController;
-import com.cosmos.schoolapp.scene.Loader;
+import com.cosmos.schoolapp.util.Loader;
 import javafx.scene.Parent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;

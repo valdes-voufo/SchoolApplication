@@ -1,6 +1,6 @@
 package com.cosmos.schoolapp.controller;
 
-import com.cosmos.schoolapp.scene.Loader;
+import com.cosmos.schoolapp.util.Loader;
 import javafx.scene.control.SplitPane;
 import javafx.scene.layout.Pane;
 import org.springframework.beans.factory.annotation.Autowired;
