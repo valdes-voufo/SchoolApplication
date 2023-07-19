@@ -5,30 +5,21 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
+import lombok.*;
 
 @Entity
 @Table
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
+@Setter
+@Getter
 public class Section {
 
   @Id @GeneratedValue private long sectionID;
 
   @NotNull private String name;
-
-  public long getSectionID() {
-    return sectionID;
-  }
-
-  public void setSectionID(long sectionID) {
-    this.sectionID = sectionID;
-  }
-
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
 
   @Override
   public String toString() {

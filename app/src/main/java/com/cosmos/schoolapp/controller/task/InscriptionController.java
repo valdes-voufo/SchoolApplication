@@ -1,6 +1,8 @@
 package com.cosmos.schoolapp.controller.task;
 
-import com.cosmos.schoolapp.data.builder.StudentBuilder;
+import com.cosmos.schoolapp.data.DataMill;
+import com.cosmos.schoolapp.data.DataObserver;
+import com.cosmos.schoolapp.data.observer.StudentDataObserver;
 import com.cosmos.schoolapp.data.entity.Student;
 import com.cosmos.schoolapp.util.Loader;
 import com.cosmos.schoolapp.data.Gender;
@@ -23,7 +25,7 @@ import java.util.ResourceBundle;
 
 // @Controller
 @Component
-public class InscriptionController implements Initializable, MyController {
+public class InscriptionController implements Initializable, MyController, DataObserver<Student> {
   public TextField lastname;
   public TextField firstname;
   public CheckBox maleCheckBox;
@@ -72,14 +74,13 @@ public class InscriptionController implements Initializable, MyController {
 
     // build the new student
     Student student =
-        new StudentBuilder()
-            .setStudentId(10) // FIXME: 18.07.2023 generate
-            .setLastname(lastname.getText())
-            .setFirstname(firstname.getText())
-            .setGender(getGender())
-            .setAdresse(address.getText())
-            .setBirthDate(dateOfBirth.getValue())
-            .setBirthPlace(birthPlace.getText())
+        DataMill.studentBuilder()
+            .lastname(lastname.getText())
+            .firstname(firstname.getText())
+            .gender(getGender())
+            .adresse(address.getText())
+            .birthDate(dateOfBirth.getValue())
+            .birthPlace(birthPlace.getText())
             .build();
 
     if (confirmInscription()) {
@@ -143,4 +144,7 @@ public class InscriptionController implements Initializable, MyController {
     maleCheckBox.setSelected(false);
     femaleCheckBox.setSelected(true);
   }
+
+  @Override
+  public void onDataUpdated(Student data) {}
 }

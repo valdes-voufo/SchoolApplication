@@ -1,9 +1,12 @@
 package com.cosmos.schoolapp.service;
 
-import com.cosmos.schoolapp.data.RepositoryListener;
 import com.cosmos.schoolapp.data.entity.ClassRoom;
 import com.cosmos.schoolapp.data.entity.Level;
 import com.cosmos.schoolapp.data.entity.Section;
+import com.cosmos.schoolapp.data.observer.ClassroomDataObserver;
+import com.cosmos.schoolapp.data.observer.LevelDataObserver;
+import com.cosmos.schoolapp.data.observer.SectionDataObserver;
+import com.cosmos.schoolapp.data.observer.StudentDataObserver;
 import com.cosmos.schoolapp.data.repository.ClassroomRepository;
 import com.cosmos.schoolapp.data.repository.LevelRepository;
 import com.cosmos.schoolapp.data.repository.SectionRepository;
@@ -21,7 +24,9 @@ public class ClassroomService {
   private final LevelRepository levelRepository;
   private final SectionRepository sectionRepository;
 
-  private final List<RepositoryListener<ClassRoom>> listeners = new ArrayList<>();
+  private List<ClassroomDataObserver> classroomDataObservers = new ArrayList<>();
+  private List<SectionDataObserver> sectionDataObservers = new ArrayList<>();
+  private List<LevelDataObserver> levelDataObservers = new ArrayList<>();
 
   @Autowired
   public ClassroomService(
@@ -51,13 +56,24 @@ public class ClassroomService {
 
   public void saveSection(Section section) {
     sectionRepository.save(section);
+    notify(section);
   }
 
   public void saveClassRoom(ClassRoom classRoom) {
     classroomRepository.save(classRoom);
-    for (RepositoryListener<ClassRoom> listener : listeners) {
-      listener.onUserChange(classRoom);
-    }
+    notify(classRoom);
+  }
+
+  private void notify(ClassRoom classRoom) {
+    classroomDataObservers.forEach(o -> o.onClassroomUpdated(classRoom));
+  }
+
+  private void notify(Section section) {
+    sectionDataObservers.forEach(o -> o.onSectionUpdated(section));
+  }
+
+  private void notify(Level level) {
+    levelDataObservers.forEach(o -> o.onLevelUpdated(level));
   }
 
   public Level getLevelByID(String id) throws ChangeSetPersister.NotFoundException {
@@ -71,9 +87,18 @@ public class ClassroomService {
 
   public void saveLevel(Level level) {
     levelRepository.save(level);
+    notify(level);
   }
 
-  public void addStudentChangeListener(RepositoryListener<ClassRoom> listener) {
-    listeners.add(listener);
+  public void addObserver(SectionDataObserver observer) {
+    this.sectionDataObservers.add(observer);
+  }
+
+  public void addObserver(LevelDataObserver observer) {
+    this.levelDataObservers.add(observer);
+  }
+
+  public void addObserver(ClassroomDataObserver observer) {
+    this.classroomDataObservers.add(observer);
   }
 }

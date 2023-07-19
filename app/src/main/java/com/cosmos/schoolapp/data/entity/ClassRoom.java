@@ -22,7 +22,6 @@ public class ClassRoom {
   @NotNull private String name;
 
   public long levelID;
-  public long numberOfStudents;
 
   @Override
   public String toString() {

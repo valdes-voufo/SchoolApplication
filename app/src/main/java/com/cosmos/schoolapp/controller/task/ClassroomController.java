@@ -5,11 +5,15 @@ import com.cosmos.schoolapp.controller.MyController;
 import com.cosmos.schoolapp.data.entity.ClassRoom;
 import com.cosmos.schoolapp.data.entity.Level;
 import com.cosmos.schoolapp.data.entity.Section;
+import com.cosmos.schoolapp.data.observer.ClassroomDataObserver;
+import com.cosmos.schoolapp.data.observer.LevelDataObserver;
+import com.cosmos.schoolapp.data.observer.SectionDataObserver;
 import com.cosmos.schoolapp.service.ClassroomService;
 import com.cosmos.schoolapp.util.AlertBuilder;
 import com.cosmos.schoolapp.util.Loader;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
@@ -28,7 +32,12 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 @Controller
-public class ClassroomController implements MyController, Initializable {
+public class ClassroomController
+    implements MyController,
+        Initializable,
+        ClassroomDataObserver,
+        SectionDataObserver,
+        LevelDataObserver {
 
   public TextField className;
   public ComboBox<Level> classLevel;
@@ -39,25 +48,29 @@ public class ClassroomController implements MyController, Initializable {
 
   public TextField sectionName;
   public TableView<Section> sectionTable;
-  public TableColumn<Section,String> sectionSectionCol;
-  public TableColumn<Section,Double> sectionStudentCol;
-  public TableColumn<Section,Double> sectionWomenCol;
-  public TableColumn<Section,Double> sectionMenCol;
+  public TableColumn<Section, String> sectionSectionCol;
+  public TableColumn<Section, Double> sectionStudentCol;
+  public TableColumn<Section, Double> sectionWomenCol;
+  public TableColumn<Section, Double> sectionMenCol;
   public TableView<Level> levelTable1;
-  public TableColumn<Level,String> levelLevelCol;
-  public TableColumn<Level,Double> levelStudentCol;
-  public TableColumn<Level,Double> levelWomenCol;
-  public TableColumn<Level,Double> levelMenCol;
+  public TableColumn<Level, String> levelLevelCol;
+  public TableColumn<Level, Double> levelStudentCol;
+  public TableColumn<Level, Double> levelWomenCol;
+  public TableColumn<Level, Double> levelMenCol;
   public TableView<ClassRoom> classTable;
-  public TableColumn<ClassRoom,String> classClassCol;
-  public TableColumn<ClassRoom,Double> classStudentCol;
-  public TableColumn<ClassRoom,Double> classWomenCol;
-  public TableColumn<ClassRoom,Double> classMenCol;
+  public TableColumn<ClassRoom, String> classClassCol;
+  public TableColumn<ClassRoom, Double> classStudentCol;
+  public TableColumn<ClassRoom, Double> classWomenCol;
+  public TableColumn<ClassRoom, Double> classMenCol;
   protected ConfigurableApplicationContext ctx;
 
   protected ClassroomService classroomService;
 
   protected AnchorPane pane;
+
+  private ObservableList<Section> sectionList = FXCollections.observableArrayList();
+  private ObservableList<Level> levelList = FXCollections.observableArrayList();
+  private ObservableList<ClassRoom> classroomList = FXCollections.observableArrayList();
 
   @Autowired
   public ClassroomController(ClassroomService service, ConfigurableApplicationContext ctx) {
@@ -78,32 +91,42 @@ public class ClassroomController implements MyController, Initializable {
     pane = Loader.load(resource, ctx);
     return pane;
   }
+
   @Override
   public void initialize(URL location, ResourceBundle resources) {
-    levelSection.setItems(FXCollections.observableList(classroomService.getAllSection()));
-    classLevel.setItems(FXCollections.observableList(classroomService.getAllLevel()));
+    classroomService.addObserver((ClassroomDataObserver) this);
+    classroomService.addObserver((SectionDataObserver) this);
+    classroomService.addObserver((LevelDataObserver) this);
+    classroomList = FXCollections.observableArrayList(classroomService.getAllClassroom());
 
-    sectionTable.setItems(FXCollections.observableList(classroomService.getAllSection()));
+    sectionList = FXCollections.observableArrayList(classroomService.getAllSection());
+
+    levelList = FXCollections.observableArrayList(classroomService.getAllLevel());
+
+    levelSection.setItems(sectionList);
+    classLevel.setItems(levelList);
+
+    sectionTable.setItems(sectionList);
     sectionSectionCol.setCellValueFactory(
-            cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().getName())));
+        cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().getName())));
 
-    levelTable1.setItems(FXCollections.observableList(classroomService.getAllLevel()));
-    levelLevelCol.setCellValueFactory(cellData->new SimpleStringProperty(cellData.getValue().getName()));
+    levelTable1.setItems(levelList);
+    levelLevelCol.setCellValueFactory(
+        cellData -> new SimpleStringProperty(cellData.getValue().getName()));
 
-    classTable.setItems(FXCollections.observableList(classroomService.getAllClassroom()));
-    classClassCol.setCellValueFactory(cellData->new SimpleStringProperty(cellData.getValue().getName()));
-
+    classTable.setItems(classroomList);
+    classClassCol.setCellValueFactory(
+        cellData -> new SimpleStringProperty(cellData.getValue().getName()));
   }
 
   public void addClassroom(ActionEvent actionEvent) {
-    if (!checkFill(className, "classe")) {
+    if (isNotFill(className, "classe")) {
       return;
     }
 
     if (classLevel.getSelectionModel().isEmpty()) {
       return;
     }
-
 
     // build and save classroom
     ClassRoom classRoom = new ClassRoom();
@@ -119,20 +142,20 @@ public class ClassroomController implements MyController, Initializable {
     AlertBuilder.info("Classe " + classRoom.getName() + " Ajouter avec Success");
   }
 
-  private boolean checkFill(TextField className, String name) {
+  private boolean isNotFill(TextField className, String name) {
     if (className.textProperty().isEmpty().get()) {
       AlertBuilder.error("Remplir le champ " + name);
-      return false;
+      return true;
     }
-    return true;
+    return false;
   }
 
   public void addLevel(ActionEvent actionEvent) {
-    if (!checkFill(levelName, "Level")) {
+    if (isNotFill(levelName, "Level")) {
       return;
     }
 
-    if (!checkFill(levelSchoolFee, "PENSION")) {
+    if (isNotFill(levelSchoolFee, "PENSION")) {
       return;
     }
     if (levelSection.getSelectionModel().isEmpty()) {
@@ -156,7 +179,7 @@ public class ClassroomController implements MyController, Initializable {
   }
 
   public void addSection(ActionEvent actionEvent) {
-    if (!checkFill(sectionName, "Section")) {
+    if (isNotFill(sectionName, "Section")) {
       return;
     }
     // build and save section
@@ -171,5 +194,21 @@ public class ClassroomController implements MyController, Initializable {
     AlertBuilder.info("Section " + section.getName() + " Ajouter avec Success");
   }
 
+  @Override
+  public void onClassroomUpdated(ClassRoom classRoom) {
+    classroomList.clear();
+    classroomList.addAll(classroomService.getAllClassroom());
+  }
 
+  @Override
+  public void onSectionUpdated(Section section) {
+    sectionList.clear();
+    sectionList.addAll(classroomService.getAllSection());
+  }
+
+  @Override
+  public void onLevelUpdated(Level level) {
+    levelList.clear();
+    levelList.addAll(classroomService.getAllLevel());
+  }
 }

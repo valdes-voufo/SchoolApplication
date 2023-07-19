@@ -1,7 +1,6 @@
 package com.cosmos.schoolapp.service;
 
 import com.cosmos.schoolapp.data.DataObserver;
-import com.cosmos.schoolapp.data.RepositoryListener;
 import com.cosmos.schoolapp.data.entity.Student;
 import com.cosmos.schoolapp.data.repository.StudentRepository;
 import javafx.collections.FXCollections;

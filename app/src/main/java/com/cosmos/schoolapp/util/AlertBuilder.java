@@ -42,7 +42,7 @@ public class AlertBuilder {
   public static void info(String message) {
     Alert alert = createAlert("Info", message, Alert.AlertType.INFORMATION);
     // Create a timeline to close the alert after a certain duration
-    Duration duration = Duration.seconds(1);
+    Duration duration = Duration.seconds(0.5);
     KeyFrame keyFrame = new KeyFrame(duration, event -> alert.close());
     Timeline timeline = new Timeline(keyFrame);
     timeline.setDelay(duration);

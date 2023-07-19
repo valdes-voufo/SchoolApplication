@@ -1,6 +1,6 @@
 package com.cosmos.schoolapp.util.controller;
 
-import com.cosmos.schoolapp.data.builder.StudentBuilder;
+import com.cosmos.schoolapp.data.observer.StudentDataObserver;
 import com.cosmos.schoolapp.controller.MyController;
 import com.cosmos.schoolapp.data.entity.Student;
 import com.cosmos.schoolapp.util.Loader;
@@ -146,8 +146,8 @@ public class StudentController implements Initializable, MyController {
     fatherEmail.setText(student.getParentEmail());
     fatherNumber.setText(student.getFatherNumber());
     motherNumber.setText(student.getMotherNumber());
-    motherAdress.setText(student.getMotherAdress());
-    fatherAdress.setText(student.getFatherAdress());
+    motherAdress.setText(student.getMotherAddress());
+    fatherAdress.setText(student.getFatherAddress());
     fatherJob.setText(student.getFatherJob());
     motherJob.setText(student.getMotherJob());
     motherEmail.setText(student.getMotherEmail());
@@ -182,32 +182,28 @@ public class StudentController implements Initializable, MyController {
     datePicker.setValue(LocalDate.of(2023, 6, 19));
 
     LocalDate selectedDate = datePicker.getValue();
-    Student student =
-        new StudentBuilder()
-            .setStudentFee(30000.0)
-            .setAdresse("KAMKOP-BAFOUSSAM")
-            .setLastname("NGUETAVA")
-            .setFirstname("VANOL")
-            .setFatherAdress("KAMKOP-BAFOUSSAM")
-            .setMotherAdress("KAMKOP-BAFOUSSAM")
-            .setMotherEmail("KJ@gmail.com")
-            .setFatherJob("PHILOSOPHE")
-            .setMotherJob("ASTRONAUTE")
-            .setMotherName("HILARY CLINTON")
-            .setFatherName("BILL GATES")
-            .setFatherNumber("677889333")
-            .setMotherNumber("64874289")
-            .setBirthDate(selectedDate)
-            .setBirthPlace("BALENG")
-            .setGender(Gender.MALE)
-            .setFatherEmail("vanol@gmail.com")
-            .build();
+    /* Student student =
+    new StudentDataObserver()
+        .setStudentFee(30000.0)
+        .setAdresse("KAMKOP-BAFOUSSAM")
+        .setLastname("NGUETAVA")
+        .setFirstname("VANOL")
+        .setFatherAdress("KAMKOP-BAFOUSSAM")
+        .setMotherAdress("KAMKOP-BAFOUSSAM")
+        .setMotherEmail("KJ@gmail.com")
+        .setFatherJob("PHILOSOPHE")
+        .setMotherJob("ASTRONAUTE")
+        .setMotherName("HILARY CLINTON")
+        .setFatherName("BILL GATES")
+        .setFatherNumber("677889333")
+        .setMotherNumber("64874289")
+        .setBirthDate(selectedDate)
+        .setBirthPlace("BALENG")
+        .setGender(Gender.MALE)
+        .setFatherEmail("vanol@gmail.com")
+        .build();*/
 
-    try {
-      feelStudentsDetails(student);
-    } catch (ChangeSetPersister.NotFoundException e) {
-      throw new RuntimeException(e);
-    }
+    //  feelStudentsDetails(student);
   }
 
   @Override
