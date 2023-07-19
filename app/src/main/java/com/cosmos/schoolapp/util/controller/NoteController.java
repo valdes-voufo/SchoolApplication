@@ -167,9 +167,9 @@ public class NoteController implements Initializable, MyController {
 
   @Override
   public void initialize(URL location, ResourceBundle resources) {
-   // subject.getItems().addAll(Helpers.matieres);
-   // sequence.getItems().addAll(Helpers.sequences);
-   // classroom.getItems().addAll(Helpers.classes);
+    // subject.getItems().addAll(Helpers.matieres);
+    // sequence.getItems().addAll(Helpers.sequences);
+    // classroom.getItems().addAll(Helpers.classes);
     label.setText("Fiche de Notes");
     // focus(AllTextFields);
 

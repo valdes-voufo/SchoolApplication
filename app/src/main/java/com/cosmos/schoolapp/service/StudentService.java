@@ -16,7 +16,7 @@ import java.util.List;
 @Service
 public class StudentService {
   private final StudentRepository studentRepository;
-   private List<DataObserver<Student>> observers = new ArrayList<>();
+  private List<DataObserver<Student>> observers = new ArrayList<>();
 
   @Autowired
   public StudentService(StudentRepository studentRepository) {
@@ -36,17 +36,17 @@ public class StudentService {
   public void saveStudent(Student user) {
     studentRepository.save(user);
     notifyObservers(user);
-
   }
 
   public void addObserver(DataObserver<Student> observer) {
     this.observers.add(observer);
   }
 
-  public void removeObserver(DataObserver<Student> observer){
+  public void removeObserver(DataObserver<Student> observer) {
     this.observers.remove(observer);
     notifyObservers(null);
   }
+
   private void notifyObservers(Student updatedStudent) {
     for (DataObserver<Student> observer : observers) {
       observer.onDataUpdated(updatedStudent);

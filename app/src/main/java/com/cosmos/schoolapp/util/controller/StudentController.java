@@ -172,13 +172,12 @@ public class StudentController implements Initializable, MyController {
             masculinCheckBox.setSelected(false);
           }
         });
-
   }
 
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
-  //  classRoom.getItems().addAll(Helpers.classes); fixme
-  //  academicYear.getItems().addAll(Helpers.academicYear);
+    //  classRoom.getItems().addAll(Helpers.classes); fixme
+    //  academicYear.getItems().addAll(Helpers.academicYear);
     DatePicker datePicker = new DatePicker();
     datePicker.setValue(LocalDate.of(2023, 6, 19));
 
