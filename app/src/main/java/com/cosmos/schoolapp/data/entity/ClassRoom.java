@@ -1,6 +1,7 @@
 package com.cosmos.schoolapp.data.entity;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
@@ -10,12 +11,13 @@ import org.hibernate.annotations.Generated;
 @Table
 public class ClassRoom {
 
-  @Id @Generated @NotNull private long classRoomID;
+  @Id @GeneratedValue
+  private long classRoomID;
 
   @NotNull private String name;
 
   @NotNull public long levelID;
-  public long numberOfStudents;
+
 
   public long getClassRoomID() {
     return classRoomID;
@@ -33,13 +35,6 @@ public class ClassRoom {
     this.levelID = levelID;
   }
 
-  public long getNumberOfStudents() {
-    return numberOfStudents;
-  }
-
-  public void setNumberOfStudents(long numberOfStudents) {
-    this.numberOfStudents = numberOfStudents;
-  }
 
   public String getName() {
     return name;

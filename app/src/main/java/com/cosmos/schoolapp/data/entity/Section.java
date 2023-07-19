@@ -6,20 +6,13 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 
-
 @Entity
 @Table
-public class Level {
+public class Section {
 
-  @Id @GeneratedValue private long levelID;
+  @Id @GeneratedValue private long sectionID;
 
   @NotNull private String name;
-
-  @NotNull private long sectionID;
-
-  public long getLevelID() {
-    return levelID;
-  }
 
   public long getSectionID() {
     return sectionID;
@@ -28,20 +21,6 @@ public class Level {
   public void setSectionID(long sectionID) {
     this.sectionID = sectionID;
   }
-
-  public void setLevelID(long levelID) {
-    this.levelID = levelID;
-  }
-
-  public double getSchoolFees() {
-    return SchoolFees;
-  }
-
-  public void setSchoolFees(double schoolFees) {
-    SchoolFees = schoolFees;
-  }
-
-  private double SchoolFees;
 
   public String getName() {
     return name;

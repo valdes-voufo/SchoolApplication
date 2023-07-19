@@ -32,17 +32,17 @@ public class AlertBuilder {
     return createAlert(title, message, type);
   }
 
-  public static void error(String title, String message) {
-    Alert alert = createAlert(title, message, Alert.AlertType.ERROR);
+  public static void error(String message) {
+    Alert alert = createAlert("ERREUR", message, Alert.AlertType.ERROR);
     if (!testing) {
       alert.showAndWait();
     }
   }
 
-  public static void alert(String title, String message, double time, Alert.AlertType type) {
-    Alert alert = createAlert(title, message, type);
+  public static void info(String message) {
+    Alert alert = createAlert("Info", message, Alert.AlertType.INFORMATION);
     // Create a timeline to close the alert after a certain duration
-    Duration duration = Duration.seconds(time);
+    Duration duration = Duration.seconds(1);
     KeyFrame keyFrame = new KeyFrame(duration, event -> alert.close());
     Timeline timeline = new Timeline(keyFrame);
     timeline.setDelay(duration);

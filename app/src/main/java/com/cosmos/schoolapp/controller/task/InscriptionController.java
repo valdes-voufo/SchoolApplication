@@ -4,29 +4,22 @@ import com.cosmos.schoolapp.data.builder.StudentBuilder;
 import com.cosmos.schoolapp.data.entity.Student;
 import com.cosmos.schoolapp.util.Loader;
 import com.cosmos.schoolapp.data.Gender;
-import com.cosmos.schoolapp.data.StudentStatus;
 import com.cosmos.schoolapp.service.StudentService;
 import com.cosmos.schoolapp.util.AlertBuilder;
 import com.cosmos.schoolapp.controller.MyController;
-import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
-import org.apache.commons.logging.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Controller;
 
 import java.net.URL;
-import java.time.LocalDate;
 import java.util.Optional;
 import java.util.ResourceBundle;
-import java.util.logging.Logger;
 
 // @Controller
 @Component
@@ -96,7 +89,7 @@ public class InscriptionController implements Initializable, MyController {
   }
 
   public void inscriptionSucceed() {
-    AlertBuilder.alert("Inscription", "eleve inscrit avec Success", 1, Alert.AlertType.INFORMATION);
+    AlertBuilder.info("eleve inscrit avec Success");
   }
 
   protected boolean confirmInscription() {
@@ -115,23 +108,23 @@ public class InscriptionController implements Initializable, MyController {
 
   protected boolean checkFields() {
     if (lastname.textProperty().isEmpty().get()) {
-      AlertBuilder.error("Erreur", "Prenom non remplis");
+      AlertBuilder.error("Prenom non remplis");
       return false;
     }
     if (firstname.textProperty().isEmpty().get()) {
-      AlertBuilder.error("Erreur", "Prenom non remplis");
+      AlertBuilder.error("Prenom non remplis");
       return false;
     }
     if (!maleCheckBox.isSelected() && !femaleCheckBox.isSelected()) {
-      AlertBuilder.error("Erreur", "Sexe non remplis");
+      AlertBuilder.error("Sexe non remplis");
       return false;
     }
     if (address.textProperty().isEmpty().get()) {
-      AlertBuilder.error("Erreur", "Adresse non remplis");
+      AlertBuilder.error("Adresse non remplis");
       return false;
     }
     if (birthPlace.textProperty().isEmpty().get()) {
-      AlertBuilder.error("Erreur", "Lieu de Naissance non remplis");
+      AlertBuilder.error("Lieu de Naissance non remplis");
       return false;
     }
     return true;
