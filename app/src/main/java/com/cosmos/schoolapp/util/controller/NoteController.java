@@ -4,7 +4,7 @@ import com.cosmos.schoolapp.controller.MyController;
 import com.cosmos.schoolapp.data.entity.Student;
 import com.cosmos.schoolapp.util.messages.NoteMessage;
 import com.cosmos.schoolapp.util.Loader;
-import com.cosmos.schoolapp.util.Vanol;
+
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -167,9 +167,9 @@ public class NoteController implements Initializable, MyController {
 
   @Override
   public void initialize(URL location, ResourceBundle resources) {
-    subject.getItems().addAll(Vanol.matieres);
-    sequence.getItems().addAll(Vanol.sequences);
-    classroom.getItems().addAll(Vanol.classes);
+    // subject.getItems().addAll(Helpers.matieres);
+    // sequence.getItems().addAll(Helpers.sequences);
+    // classroom.getItems().addAll(Helpers.classes);
     label.setText("Fiche de Notes");
     // focus(AllTextFields);
 

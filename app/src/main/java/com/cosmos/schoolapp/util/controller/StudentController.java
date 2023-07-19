@@ -7,7 +7,6 @@ import com.cosmos.schoolapp.util.Loader;
 import com.cosmos.schoolapp.data.Gender;
 import com.cosmos.schoolapp.service.ClassroomService;
 import com.cosmos.schoolapp.service.StudentService;
-import com.cosmos.schoolapp.util.Vanol;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -177,8 +176,8 @@ public class StudentController implements Initializable, MyController {
 
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
-    classRoom.getItems().addAll(Vanol.classes);
-    academicYear.getItems().addAll(Vanol.academicYear);
+    //  classRoom.getItems().addAll(Helpers.classes); fixme
+    //  academicYear.getItems().addAll(Helpers.academicYear);
     DatePicker datePicker = new DatePicker();
     datePicker.setValue(LocalDate.of(2023, 6, 19));
 

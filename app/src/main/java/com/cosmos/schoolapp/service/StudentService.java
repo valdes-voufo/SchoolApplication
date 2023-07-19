@@ -1,5 +1,6 @@
 package com.cosmos.schoolapp.service;
 
+import com.cosmos.schoolapp.data.DataObserver;
 import com.cosmos.schoolapp.data.RepositoryListener;
 import com.cosmos.schoolapp.data.entity.Student;
 import com.cosmos.schoolapp.data.repository.StudentRepository;
@@ -15,7 +16,7 @@ import java.util.List;
 @Service
 public class StudentService {
   private final StudentRepository studentRepository;
-  // private List<RepositoryListener<Student>> listeners = new ArrayList<>();
+  private List<DataObserver<Student>> observers = new ArrayList<>();
 
   @Autowired
   public StudentService(StudentRepository studentRepository) {
@@ -28,18 +29,27 @@ public class StudentService {
   }
 
   public ObservableList<Student> getAllStudents() {
-    List<Student> users = (List<Student>) studentRepository.findAll();
+    List<Student> users = studentRepository.findAll();
     return FXCollections.observableArrayList(users);
   }
 
   public void saveStudent(Student user) {
     studentRepository.save(user);
-    /*  for (RepositoryListener<Student> listener : listeners) {
-      listener.onUserChange(user);
-    }*/
+    notifyObservers(user);
   }
 
-  public void addStudentChangeListener(RepositoryListener<Student> listener) {
-    // listeners.add(listener);
+  public void addObserver(DataObserver<Student> observer) {
+    this.observers.add(observer);
+  }
+
+  public void removeObserver(DataObserver<Student> observer) {
+    this.observers.remove(observer);
+    notifyObservers(null);
+  }
+
+  private void notifyObservers(Student updatedStudent) {
+    for (DataObserver<Student> observer : observers) {
+      observer.onDataUpdated(updatedStudent);
+    }
   }
 }
