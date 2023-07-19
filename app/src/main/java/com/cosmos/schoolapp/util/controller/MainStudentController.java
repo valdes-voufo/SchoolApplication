@@ -63,7 +63,7 @@ public class MainStudentController implements MyController {
     studentTable.setItems(this.service.getAllStudents());
 
     // Listen for database changes and update the TableView
-    service.addStudentChangeListener(this::handleUserChange);
+    service.addObserver(this::handleUserChange);
 
     ObservableList<Student> studentsList = service.getAllStudents();
     FilteredList<Student> filteredData = new FilteredList<>(studentsList, b -> true);
