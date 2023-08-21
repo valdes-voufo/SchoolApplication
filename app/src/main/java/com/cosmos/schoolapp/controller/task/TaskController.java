@@ -1,10 +1,12 @@
 package com.cosmos.schoolapp.controller.task;
 
-import com.cosmos.schoolapp.controller.MainContentController;
+import com.cosmos.schoolapp.controller.MainController;
 import com.cosmos.schoolapp.controller.MyController;
 import com.cosmos.schoolapp.util.Loader;
 import javafx.event.ActionEvent;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.TabPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import org.springframework.beans.factory.annotation.Value;
@@ -23,16 +25,13 @@ public class TaskController implements MyController {
   public Button notes;
   public Button inscription;
 
-  protected MainContentController mainContentController;
-
-  TaskController(ConfigurableApplicationContext ctx, MainContentController controller) {
-    this.mainContentController = controller;
+  TaskController(ConfigurableApplicationContext ctx) {
     this.ctx = ctx;
   }
 
   public void goToInscription(ActionEvent actionEvent) {
-
-    mainContentController.switchContent(ctx.getBean(InscriptionController.class).getPane());
+    ctx.getBean(MainController.class)
+        .switchContent(ctx.getBean(InscriptionController.class).getPane());
   }
 
   public void goToNotes(ActionEvent actionEvent) {
@@ -45,25 +44,26 @@ public class TaskController implements MyController {
   }
 
   public void goToClassroom(ActionEvent actionEvent) {
-    mainContentController.switchContent(ctx.getBean(ClassroomController.class).getPane());
+    ctx.getBean(MainController.class).switchContent(ctx.getBean(ClassroomController.class).getPane());
+
   }
 
   public void goToStudent(ActionEvent actionEvent) {
-    //  mainContentController.switchContent(ctx.getBean(MainStudentController.class).getPane());
+    ctx.getBean(MainController.class).switchContent(ctx.getBean(StudentController.class).getPane());
   }
 
   public void goToStatics(ActionEvent actionEvent) {}
-
-  @Override
-  public Pane getPane() {
-    return pane;
-  }
 
   @Value("classpath:/schoolapp/layout/main/main-right/task/task.fxml")
   Resource resource;
 
   @Override
-  public Pane buildPaneRecursive() {
+  public Parent getPane() {
+    return pane;
+  }
+
+  @Override
+  public AnchorPane buildPaneRecursive() {
     ctx.getBean(InscriptionController.class).buildPaneRecursive();
     // ctx.getBean(NoteController.class).buildPaneRecursive();
     //  ctx.getBean(PaymentController.class).buildPaneRecursive();

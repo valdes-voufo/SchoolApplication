@@ -10,6 +10,7 @@ import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -22,6 +23,9 @@ import org.springframework.stereotype.Controller;
 public class MainStudentController implements MyController {
   public TableColumn<Student, String> classroom;
   public TableColumn<Student, String> number;
+  public ComboBox section;
+  public ComboBox level;
+  public ComboBox classroom1;
   StudentService service;
   private StackPane pane;
 
@@ -52,18 +56,11 @@ public class MainStudentController implements MyController {
     firstname.setCellValueFactory(
         cellData -> new SimpleStringProperty(cellData.getValue().getFirstname()));
 
-    status.setCellValueFactory(
-        cellData -> new SimpleStringProperty(cellData.getValue().getStatus().getValue()));
-
-    birthday.setCellValueFactory(
-        cellData -> new SimpleStringProperty(cellData.getValue().getBirthDate().toString()));
-
     fee.setCellValueFactory(
         cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().getStudentFee())));
     studentTable.setItems(this.service.getAllStudents());
 
     // Listen for database changes and update the TableView
-    service.addObserver(this::handleUserChange);
 
     ObservableList<Student> studentsList = service.getAllStudents();
     FilteredList<Student> filteredData = new FilteredList<>(studentsList, b -> true);

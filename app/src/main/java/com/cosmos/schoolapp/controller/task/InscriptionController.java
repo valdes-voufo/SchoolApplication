@@ -1,17 +1,26 @@
 package com.cosmos.schoolapp.controller.task;
 
 import com.cosmos.schoolapp.data.DataMill;
-import com.cosmos.schoolapp.data.DataObserver;
-import com.cosmos.schoolapp.data.observer.StudentDataObserver;
+import com.cosmos.schoolapp.data.entity.ClassRoom;
+import com.cosmos.schoolapp.data.entity.Level;
+import com.cosmos.schoolapp.data.entity.Section;
 import com.cosmos.schoolapp.data.entity.Student;
+import com.cosmos.schoolapp.data.observer.ClassroomDataObserver;
+import com.cosmos.schoolapp.data.observer.LevelDataObserver;
+import com.cosmos.schoolapp.data.observer.SectionDataObserver;
+import com.cosmos.schoolapp.service.ClassroomService;
 import com.cosmos.schoolapp.util.Loader;
 import com.cosmos.schoolapp.data.Gender;
 import com.cosmos.schoolapp.service.StudentService;
 import com.cosmos.schoolapp.util.AlertBuilder;
 import com.cosmos.schoolapp.controller.MyController;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -20,12 +29,18 @@ import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Component;
 
 import java.net.URL;
+import java.time.Year;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
 // @Controller
 @Component
-public class InscriptionController implements Initializable, MyController, DataObserver<Student> {
+public class InscriptionController
+    implements Initializable,
+        MyController,
+        ClassroomDataObserver,
+        SectionDataObserver,
+        LevelDataObserver {
   public TextField lastname;
   public TextField firstname;
   public CheckBox maleCheckBox;
@@ -35,6 +50,11 @@ public class InscriptionController implements Initializable, MyController, DataO
 
   public DatePicker dateOfBirth;
   public TextField birthPlace;
+  public ImageView profilPicture;
+  public ChoiceBox<Year> academicYear;
+  public ChoiceBox<ClassRoom> classRoom;
+  public ChoiceBox<Level> level;
+  public ChoiceBox<Section> section;
 
   @Value("classpath:/schoolapp/layout/main/main-right/inscription/inscription.fxml")
   Resource ressource;
@@ -45,10 +65,19 @@ public class InscriptionController implements Initializable, MyController, DataO
 
   protected Pane pane;
 
+  private ObservableList<Section> sectionList = FXCollections.observableArrayList();
+  private ObservableList<Level> levelList = FXCollections.observableArrayList();
+  private ObservableList<ClassRoom> classroomList = FXCollections.observableArrayList();
+  ClassroomService classroomService;
+
   @Autowired
-  public InscriptionController(StudentService service, ConfigurableApplicationContext ctx) {
+  public InscriptionController(
+      ClassroomService classroomService,
+      StudentService service,
+      ConfigurableApplicationContext ctx) {
     this.ctx = ctx;
     this.studentService = service;
+    this.classroomService = classroomService;
   }
 
   @Override
@@ -63,7 +92,17 @@ public class InscriptionController implements Initializable, MyController, DataO
   }
 
   @Override
-  public void initialize(URL url, ResourceBundle resourceBundle) {}
+  public void initialize(URL url, ResourceBundle resourceBundle) {
+    classroomService.addObserver((ClassroomDataObserver) this);
+    classroomService.addObserver((SectionDataObserver) this);
+    classroomService.addObserver((LevelDataObserver) this);
+    classroomList = FXCollections.observableArrayList(classroomService.getAllClassroom());
+    sectionList = FXCollections.observableArrayList(classroomService.getAllSection());
+    levelList = FXCollections.observableArrayList(classroomService.getAllLevel());
+    section.setItems(sectionList);
+    level.setItems(levelList);
+    classRoom.setItems(classroomList);
+  }
 
   public void performInscription(ActionEvent actionEvent) {
 
@@ -135,16 +174,35 @@ public class InscriptionController implements Initializable, MyController, DataO
 
   public void payedAmount(ActionEvent actionEvent) {}
 
+  @FXML
   public void CheckMale(ActionEvent actionEvent) {
     femaleCheckBox.setSelected(false);
     maleCheckBox.setSelected(true);
   }
 
+  @FXML
   public void checkFemale(ActionEvent actionEvent) {
     maleCheckBox.setSelected(false);
     femaleCheckBox.setSelected(true);
   }
 
   @Override
-  public void onDataUpdated(Student data) {}
+  public void onClassroomUpdated(ClassRoom classRoom) {
+    classroomList.clear();
+    classroomList.addAll(classroomService.getAllClassroom());
+  }
+
+  @Override
+  public void onSectionUpdated(Section section) {
+    sectionList.clear();
+    sectionList.addAll(classroomService.getAllSection());
+  }
+
+  @Override
+  public void onLevelUpdated(Level level) {
+    levelList.clear();
+    levelList.addAll(classroomService.getAllLevel());
+  }
+
+  public void goToHome(ActionEvent actionEvent) {}
 }

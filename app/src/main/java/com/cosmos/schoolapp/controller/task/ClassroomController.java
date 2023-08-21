@@ -20,6 +20,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,6 +63,7 @@ public class ClassroomController
   public TableColumn<ClassRoom, Double> classStudentCol;
   public TableColumn<ClassRoom, Double> classWomenCol;
   public TableColumn<ClassRoom, Double> classMenCol;
+  public TextField secRightName;
   protected ConfigurableApplicationContext ctx;
 
   protected ClassroomService classroomService;
@@ -92,15 +94,17 @@ public class ClassroomController
     return pane;
   }
 
+ public void initSectionTable(){
+
+ }
   @Override
   public void initialize(URL location, ResourceBundle resources) {
     classroomService.addObserver((ClassroomDataObserver) this);
     classroomService.addObserver((SectionDataObserver) this);
     classroomService.addObserver((LevelDataObserver) this);
+
     classroomList = FXCollections.observableArrayList(classroomService.getAllClassroom());
-
     sectionList = FXCollections.observableArrayList(classroomService.getAllSection());
-
     levelList = FXCollections.observableArrayList(classroomService.getAllLevel());
 
     levelSection.setItems(sectionList);
@@ -210,5 +214,14 @@ public class ClassroomController
   public void onLevelUpdated(Level level) {
     levelList.clear();
     levelList.addAll(classroomService.getAllLevel());
+  }
+
+  public void selectSection(MouseEvent mouseEvent) {
+    if (!sectionTable.getSelectionModel().isEmpty()){
+      secRightName.setText(sectionTable.getSelectionModel().getSelectedItem().getName());
+    }
+  }
+
+  public void deleteSection(ActionEvent actionEvent) {
   }
 }

@@ -1,5 +1,6 @@
 package com.cosmos.schoolapp;
 
+import com.cosmos.schoolapp.data.DataMill;
 import com.cosmos.schoolapp.data.observer.StudentDataObserver;
 import com.cosmos.schoolapp.data.entity.Student;
 
@@ -9,11 +10,11 @@ import java.util.List;
 public class TestData {
   public static List<Student> getStudentList() {
     Student student =
-        new StudentDataObserver()
-            .setStudentId(1)
-            .setStudentFee(1000.0)
-            .setFirstname("Sagesse Valdes")
-            .setLastname("Dongmo Voufo")
+        DataMill.studentBuilder()
+            .studentId(1)
+            .studentFee(1000.0)
+            .firstname("Sagesse Valdes")
+            .lastname("Dongmo Voufo")
             .build();
 
     List<Student> students = new ArrayList<>();
