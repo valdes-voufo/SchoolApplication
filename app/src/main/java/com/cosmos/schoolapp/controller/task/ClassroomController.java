@@ -8,7 +8,7 @@ import com.cosmos.schoolapp.data.entity.Section;
 import com.cosmos.schoolapp.data.observer.ClassroomDataObserver;
 import com.cosmos.schoolapp.data.observer.LevelDataObserver;
 import com.cosmos.schoolapp.data.observer.SectionDataObserver;
-import com.cosmos.schoolapp.service.ClassroomService;
+import com.cosmos.schoolapp.service.classrooms.ClassroomService;
 import com.cosmos.schoolapp.util.AlertBuilder;
 import com.cosmos.schoolapp.util.Loader;
 import javafx.beans.property.SimpleStringProperty;

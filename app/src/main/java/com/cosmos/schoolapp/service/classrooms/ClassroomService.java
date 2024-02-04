@@ -1,4 +1,4 @@
-package com.cosmos.schoolapp.service;
+package com.cosmos.schoolapp.service.classrooms;
 
 import com.cosmos.schoolapp.data.entity.ClassRoom;
 import com.cosmos.schoolapp.data.entity.Level;
@@ -24,9 +24,9 @@ public class ClassroomService {
   private final LevelRepository levelRepository;
   private final SectionRepository sectionRepository;
 
-  private List<ClassroomDataObserver> classroomDataObservers = new ArrayList<>();
-  private List<SectionDataObserver> sectionDataObservers = new ArrayList<>();
-  private List<LevelDataObserver> levelDataObservers = new ArrayList<>();
+  private final List<ClassroomDataObserver> classroomDataObservers = new ArrayList<>();
+  private final List<SectionDataObserver> sectionDataObservers = new ArrayList<>();
+  private final List<LevelDataObserver> levelDataObservers = new ArrayList<>();
 
   @Autowired
   public ClassroomService(
@@ -37,7 +37,6 @@ public class ClassroomService {
   }
 
   public ClassRoom getClassRoomByID(String id) throws ChangeSetPersister.NotFoundException {
-    // Retrieve a user from the repository //TODO handle execption
     return classroomRepository.findById(id).orElseThrow(ChangeSetPersister.NotFoundException::new);
   }
 
@@ -50,7 +49,6 @@ public class ClassroomService {
   }
 
   public Section getSectionByID(String id) throws ChangeSetPersister.NotFoundException {
-    // Retrieve a user from the repository //TODO handle
     return sectionRepository.findById(id).orElseThrow(ChangeSetPersister.NotFoundException::new);
   }
 
@@ -77,7 +75,6 @@ public class ClassroomService {
   }
 
   public Level getLevelByID(String id) throws ChangeSetPersister.NotFoundException {
-    // Retrieve a user from the repository //TODO handle
     return levelRepository.findById(id).orElseThrow(ChangeSetPersister.NotFoundException::new);
   }
 

@@ -1,8 +1,6 @@
 package com.cosmos.schoolapp.controller.task;
 
-import com.cosmos.schoolapp.StageInitializer;
 import com.cosmos.schoolapp.controller.MyController;
-import com.cosmos.schoolapp.data.Gender;
 import com.cosmos.schoolapp.data.entity.ClassRoom;
 import com.cosmos.schoolapp.data.entity.Level;
 import com.cosmos.schoolapp.data.entity.Section;
@@ -11,8 +9,8 @@ import com.cosmos.schoolapp.data.observer.ClassroomDataObserver;
 import com.cosmos.schoolapp.data.observer.LevelDataObserver;
 import com.cosmos.schoolapp.data.observer.SectionDataObserver;
 import com.cosmos.schoolapp.data.observer.StudentDataObserver;
-import com.cosmos.schoolapp.service.ClassroomService;
-import com.cosmos.schoolapp.service.StudentService;
+import com.cosmos.schoolapp.service.classrooms.ClassroomService;
+import com.cosmos.schoolapp.service.students.StudentService;
 import com.cosmos.schoolapp.util.Loader;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -22,20 +20,15 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.core.io.Resource;
-import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Controller;
 
 import java.net.URL;
-import java.time.LocalDate;
 import java.util.Date;
-import java.util.Objects;
 import java.util.ResourceBundle;
 
 @Controller

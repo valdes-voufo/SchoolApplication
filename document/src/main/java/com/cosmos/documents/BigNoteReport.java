@@ -20,7 +20,7 @@ public class BigNoteReport {
   public static void main(String[] args) {
     try {
       // Create a new PDF document
-      PdfDocument pdf = new PdfDocument(new PdfWriter("bulletin.pdf"));
+      PdfDocument pdf = new PdfDocument(new PdfWriter("document/target/pdf/bulletin.pdf"));
 
       // Create a new document to add content
       Document document = new Document(pdf);
@@ -56,7 +56,7 @@ public class BigNoteReport {
       Image image =
           new Image(
               ImageDataFactory.create(
-                  "src/main/java/com/cosmos/schoolapp/documents/LA BRAVOURE-01.png"));
+                  "document/src/main/resources/documents/logo_colors.png"));
       image.setWidth(140);
       image.setHeight(100);
       header_center.add(image);
