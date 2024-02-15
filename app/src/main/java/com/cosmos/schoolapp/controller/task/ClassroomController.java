@@ -2,13 +2,13 @@ package com.cosmos.schoolapp.controller.task;
 
 import com.cosmos.schoolapp.controller.MyController;
 
-import com.cosmos.schoolapp.entity.ClassRoom;
-import com.cosmos.schoolapp.entity.Level;
-import com.cosmos.schoolapp.entity.Section;
-import com.cosmos.schoolapp.observer.ClassroomDataObserver;
-import com.cosmos.schoolapp.observer.LevelDataObserver;
-import com.cosmos.schoolapp.observer.SectionDataObserver;
-import com.cosmos.schoolapp.service.ClassroomService;
+import com.cosmos.schoolapp.data.entity.ClassRoom;
+import com.cosmos.schoolapp.data.entity.Level;
+import com.cosmos.schoolapp.data.entity.Section;
+import com.cosmos.schoolapp.data.observer.ClassroomDataObserver;
+import com.cosmos.schoolapp.data.observer.LevelDataObserver;
+import com.cosmos.schoolapp.data.observer.SectionDataObserver;
+import com.cosmos.schoolapp.service.classrooms.ClassroomService;
 import com.cosmos.schoolapp.util.AlertBuilder;
 import com.cosmos.schoolapp.util.Loader;
 import javafx.beans.property.SimpleStringProperty;
@@ -94,8 +94,9 @@ public class ClassroomController
     return pane;
   }
 
-  public void initSectionTable() {}
+ public void initSectionTable(){
 
+ }
   @Override
   public void initialize(URL location, ResourceBundle resources) {
     classroomService.addObserver((ClassroomDataObserver) this);
@@ -216,10 +217,11 @@ public class ClassroomController
   }
 
   public void selectSection(MouseEvent mouseEvent) {
-    if (!sectionTable.getSelectionModel().isEmpty()) {
+    if (!sectionTable.getSelectionModel().isEmpty()){
       secRightName.setText(sectionTable.getSelectionModel().getSelectedItem().getName());
     }
   }
 
-  public void deleteSection(ActionEvent actionEvent) {}
+  public void deleteSection(ActionEvent actionEvent) {
+  }
 }

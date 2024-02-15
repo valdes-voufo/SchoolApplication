@@ -1,8 +1,9 @@
 package com.cosmos.schoolapp.service;
 
 import com.cosmos.schoolapp.TestData;
-import com.cosmos.schoolapp.entity.Student;
-import com.cosmos.schoolapp.repository.StudentRepository;
+import com.cosmos.schoolapp.data.entity.Student;
+import com.cosmos.schoolapp.data.repository.StudentRepository;
+import com.cosmos.schoolapp.service.students.StudentService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

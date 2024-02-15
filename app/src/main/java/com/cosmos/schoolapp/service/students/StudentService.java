@@ -1,4 +1,4 @@
-package com.cosmos.schoolapp.service;
+package com.cosmos.schoolapp.service.students;
 
 import com.cosmos.schoolapp.entity.Student;
 import com.cosmos.schoolapp.repository.StudentRepository;
@@ -20,7 +20,6 @@ public class StudentService {
   }
 
   public Student getStudentByID(String id) throws ChangeSetPersister.NotFoundException {
-    // Retrieve a user from the repository
     return studentRepository.findById(id).orElseThrow(ChangeSetPersister.NotFoundException::new);
   }
 

@@ -1,16 +1,16 @@
 package com.cosmos.schoolapp.controller.task;
 
 import com.cosmos.schoolapp.controller.MyController;
-import com.cosmos.schoolapp.entity.ClassRoom;
-import com.cosmos.schoolapp.entity.Level;
-import com.cosmos.schoolapp.entity.Section;
-import com.cosmos.schoolapp.entity.Student;
-import com.cosmos.schoolapp.observer.ClassroomDataObserver;
-import com.cosmos.schoolapp.observer.LevelDataObserver;
-import com.cosmos.schoolapp.observer.SectionDataObserver;
-import com.cosmos.schoolapp.observer.StudentDataObserver;
-import com.cosmos.schoolapp.service.ClassroomService;
-import com.cosmos.schoolapp.service.StudentService;
+import com.cosmos.schoolapp.data.entity.ClassRoom;
+import com.cosmos.schoolapp.data.entity.Level;
+import com.cosmos.schoolapp.data.entity.Section;
+import com.cosmos.schoolapp.data.entity.Student;
+import com.cosmos.schoolapp.data.observer.ClassroomDataObserver;
+import com.cosmos.schoolapp.data.observer.LevelDataObserver;
+import com.cosmos.schoolapp.data.observer.SectionDataObserver;
+import com.cosmos.schoolapp.data.observer.StudentDataObserver;
+import com.cosmos.schoolapp.service.classrooms.ClassroomService;
+import com.cosmos.schoolapp.service.students.StudentService;
 import com.cosmos.schoolapp.util.Loader;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -90,11 +90,11 @@ public class StudentController
 
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
-    // observe to update on change
+    //observe to update on change
     classroomService.addObserver((ClassroomDataObserver) this);
     classroomService.addObserver((SectionDataObserver) this);
     classroomService.addObserver((LevelDataObserver) this);
-    // studentService.addObserver() fixme add student onserver
+    //studentService.addObserver() fixme add student onserver
 
     // initialize list
     classroomList = FXCollections.observableArrayList(classroomService.getAllClassroom());
@@ -102,15 +102,16 @@ public class StudentController
     levelList = FXCollections.observableArrayList(classroomService.getAllLevel());
     studentList = FXCollections.observableArrayList(studentService.getAllStudents());
 
-    // add items
+    //add items
     section.setItems(sectionList);
     level.setItems(levelList);
     classroom1.setItems(classroomList);
     studentTable.setItems(studentList);
 
-    // init columns
-    firstname.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getFirstname()));
-    lastname.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getLastname()));
+    //init columns
+    firstname.setCellValueFactory(data->new SimpleStringProperty(data.getValue().getFirstname()));
+    lastname.setCellValueFactory(data->new SimpleStringProperty(data.getValue().getLastname()));
+
   }
 
   @Override

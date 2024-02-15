@@ -8,6 +8,6 @@ public class SchoolApp {
 
   public static void main(String[] args) {
     Application.launch(
-        SchoolGUI.class, args); // here we launch the javafx application form the spring boot App
+        SchoolGUI.class, args);
   }
 }
