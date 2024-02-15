@@ -1,4 +1,4 @@
-package com.cosmos.schoolapp.data.entity;
+package com.cosmos.schoolapp.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -15,11 +15,15 @@ import lombok.*;
 @Data
 @Setter
 @Getter
-public class Section {
+public class Level {
 
-  @Id @GeneratedValue private long sectionID;
+  @Id @GeneratedValue private long levelID;
 
   @NotNull private String name;
+
+  private long sectionID;
+
+  private double SchoolFees;
 
   @Override
   public String toString() {

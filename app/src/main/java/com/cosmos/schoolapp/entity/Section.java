@@ -1,4 +1,4 @@
-package com.cosmos.schoolapp.data.entity;
+package com.cosmos.schoolapp.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -6,7 +6,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
-import org.hibernate.annotations.Generated;
 
 @Entity
 @Table
@@ -16,13 +15,11 @@ import org.hibernate.annotations.Generated;
 @Data
 @Setter
 @Getter
-public class ClassRoom {
+public class Section {
 
-  @Id @GeneratedValue public long classRoomID;
+  @Id @GeneratedValue private long sectionID;
 
   @NotNull private String name;
-
-  public long levelID;
 
   @Override
   public String toString() {

@@ -44,8 +44,8 @@ public class TaskController implements MyController {
   }
 
   public void goToClassroom(ActionEvent actionEvent) {
-    ctx.getBean(MainController.class).switchContent(ctx.getBean(ClassroomController.class).getPane());
-
+    ctx.getBean(MainController.class)
+        .switchContent(ctx.getBean(ClassroomController.class).getPane());
   }
 
   public void goToStudent(ActionEvent actionEvent) {

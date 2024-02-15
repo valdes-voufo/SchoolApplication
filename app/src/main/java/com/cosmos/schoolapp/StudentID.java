@@ -1,4 +1,4 @@
-package com.cosmos.schoolapp.data;
+package com.cosmos.schoolapp;
 
 public class StudentID {
   private static StudentID last;

@@ -1,6 +1,6 @@
-package com.cosmos.schoolapp.data.repository;
+package com.cosmos.schoolapp.repository;
 
-import com.cosmos.schoolapp.data.entity.Student;
+import com.cosmos.schoolapp.entity.Student;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

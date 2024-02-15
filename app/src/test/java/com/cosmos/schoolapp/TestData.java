@@ -1,8 +1,6 @@
 package com.cosmos.schoolapp;
 
-import com.cosmos.schoolapp.data.DataMill;
-import com.cosmos.schoolapp.data.observer.StudentDataObserver;
-import com.cosmos.schoolapp.data.entity.Student;
+import com.cosmos.schoolapp.entity.Student;
 
 import java.util.ArrayList;
 import java.util.List;

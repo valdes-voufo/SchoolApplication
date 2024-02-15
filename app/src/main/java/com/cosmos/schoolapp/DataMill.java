@@ -1,6 +1,6 @@
-package com.cosmos.schoolapp.data;
+package com.cosmos.schoolapp;
 
-import com.cosmos.schoolapp.data.entity.Student;
+import com.cosmos.schoolapp.entity.Student;
 
 public class DataMill {
   public static Student.StudentBuilder studentBuilder() {

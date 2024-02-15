@@ -1,7 +1,7 @@
-package com.cosmos.schoolapp.data.entity;
+package com.cosmos.schoolapp.entity;
 
-import com.cosmos.schoolapp.data.Gender;
-import com.cosmos.schoolapp.data.StudentStatus;
+import com.cosmos.schoolapp.Gender;
+import com.cosmos.schoolapp.StudentStatus;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;

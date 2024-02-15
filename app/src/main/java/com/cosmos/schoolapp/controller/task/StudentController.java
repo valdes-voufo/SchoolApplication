@@ -1,16 +1,14 @@
 package com.cosmos.schoolapp.controller.task;
 
-import com.cosmos.schoolapp.StageInitializer;
 import com.cosmos.schoolapp.controller.MyController;
-import com.cosmos.schoolapp.data.Gender;
-import com.cosmos.schoolapp.data.entity.ClassRoom;
-import com.cosmos.schoolapp.data.entity.Level;
-import com.cosmos.schoolapp.data.entity.Section;
-import com.cosmos.schoolapp.data.entity.Student;
-import com.cosmos.schoolapp.data.observer.ClassroomDataObserver;
-import com.cosmos.schoolapp.data.observer.LevelDataObserver;
-import com.cosmos.schoolapp.data.observer.SectionDataObserver;
-import com.cosmos.schoolapp.data.observer.StudentDataObserver;
+import com.cosmos.schoolapp.entity.ClassRoom;
+import com.cosmos.schoolapp.entity.Level;
+import com.cosmos.schoolapp.entity.Section;
+import com.cosmos.schoolapp.entity.Student;
+import com.cosmos.schoolapp.observer.ClassroomDataObserver;
+import com.cosmos.schoolapp.observer.LevelDataObserver;
+import com.cosmos.schoolapp.observer.SectionDataObserver;
+import com.cosmos.schoolapp.observer.StudentDataObserver;
 import com.cosmos.schoolapp.service.ClassroomService;
 import com.cosmos.schoolapp.service.StudentService;
 import com.cosmos.schoolapp.util.Loader;
@@ -22,20 +20,15 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.core.io.Resource;
-import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Controller;
 
 import java.net.URL;
-import java.time.LocalDate;
 import java.util.Date;
-import java.util.Objects;
 import java.util.ResourceBundle;
 
 @Controller
@@ -97,11 +90,11 @@ public class StudentController
 
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
-    //observe to update on change
+    // observe to update on change
     classroomService.addObserver((ClassroomDataObserver) this);
     classroomService.addObserver((SectionDataObserver) this);
     classroomService.addObserver((LevelDataObserver) this);
-    //studentService.addObserver() fixme add student onserver
+    // studentService.addObserver() fixme add student onserver
 
     // initialize list
     classroomList = FXCollections.observableArrayList(classroomService.getAllClassroom());
@@ -109,16 +102,15 @@ public class StudentController
     levelList = FXCollections.observableArrayList(classroomService.getAllLevel());
     studentList = FXCollections.observableArrayList(studentService.getAllStudents());
 
-    //add items
+    // add items
     section.setItems(sectionList);
     level.setItems(levelList);
     classroom1.setItems(classroomList);
     studentTable.setItems(studentList);
 
-    //init columns
-    firstname.setCellValueFactory(data->new SimpleStringProperty(data.getValue().getFirstname()));
-    lastname.setCellValueFactory(data->new SimpleStringProperty(data.getValue().getLastname()));
-
+    // init columns
+    firstname.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getFirstname()));
+    lastname.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getLastname()));
   }
 
   @Override

@@ -1,7 +1,7 @@
 package com.cosmos.schoolapp.util.controller;
 
 import com.cosmos.schoolapp.controller.MyController;
-import com.cosmos.schoolapp.data.entity.Student;
+import com.cosmos.schoolapp.entity.Student;
 import com.cosmos.schoolapp.service.StudentService;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;

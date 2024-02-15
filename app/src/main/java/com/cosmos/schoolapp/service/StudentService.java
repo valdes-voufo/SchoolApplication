@@ -1,14 +1,13 @@
 package com.cosmos.schoolapp.service;
 
-import com.cosmos.schoolapp.data.entity.Student;
-import com.cosmos.schoolapp.data.repository.StudentRepository;
+import com.cosmos.schoolapp.entity.Student;
+import com.cosmos.schoolapp.repository.StudentRepository;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service

@@ -1,7 +1,7 @@
 package com.cosmos.schoolapp.util.controller;
 
 import com.cosmos.schoolapp.controller.MyController;
-import com.cosmos.schoolapp.data.entity.Student;
+import com.cosmos.schoolapp.entity.Student;
 import com.cosmos.schoolapp.util.messages.NoteMessage;
 import com.cosmos.schoolapp.util.Loader;
 

@@ -1,15 +1,14 @@
 package com.cosmos.schoolapp.service;
 
-import com.cosmos.schoolapp.data.entity.ClassRoom;
-import com.cosmos.schoolapp.data.entity.Level;
-import com.cosmos.schoolapp.data.entity.Section;
-import com.cosmos.schoolapp.data.observer.ClassroomDataObserver;
-import com.cosmos.schoolapp.data.observer.LevelDataObserver;
-import com.cosmos.schoolapp.data.observer.SectionDataObserver;
-import com.cosmos.schoolapp.data.observer.StudentDataObserver;
-import com.cosmos.schoolapp.data.repository.ClassroomRepository;
-import com.cosmos.schoolapp.data.repository.LevelRepository;
-import com.cosmos.schoolapp.data.repository.SectionRepository;
+import com.cosmos.schoolapp.entity.ClassRoom;
+import com.cosmos.schoolapp.entity.Level;
+import com.cosmos.schoolapp.entity.Section;
+import com.cosmos.schoolapp.observer.ClassroomDataObserver;
+import com.cosmos.schoolapp.observer.LevelDataObserver;
+import com.cosmos.schoolapp.observer.SectionDataObserver;
+import com.cosmos.schoolapp.repository.ClassroomRepository;
+import com.cosmos.schoolapp.repository.LevelRepository;
+import com.cosmos.schoolapp.repository.SectionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Service;
