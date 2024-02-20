@@ -1,6 +1,6 @@
 # SchoolApp
 
-![School Management System](pics/schoolApp.jpg)
+![School Management System](pics/schoolApp.png)
 
 This is a JavaFX Spring Boot application designed to manage schools. It provides functionalities for managing students, teachers, courses, and classes.
 
@@ -17,6 +17,8 @@ This is a JavaFX Spring Boot application designed to manage schools. It provides
 - Maven for building and managing dependencies.
 - MySQL or any other compatible relational database system.
 
+# Screenshot
+![School Management System](pics/inscription.png)
 
 
 ## Contributors
