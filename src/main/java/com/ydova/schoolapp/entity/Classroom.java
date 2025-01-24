@@ -12,13 +12,13 @@ import lombok.*;
 @Setter
 @Getter
 @Entity
-public class Section {
+public class Classroom {
 
   @Id
   @GeneratedValue
-  private Long sectionID;
-
+  public Long classRoomID;
   private String name;
+  public Long levelID;
 
   @Override
   public String toString() {

@@ -20,7 +20,7 @@ import java.time.LocalDate;
 @Entity
 public class Student {
   @Id @GeneratedValue
-  public long studentId;
+  public Long studentId;
   public String lastname;
   public String adresse;
 

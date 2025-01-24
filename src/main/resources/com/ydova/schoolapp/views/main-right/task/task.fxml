@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/21" prefHeight="600.0" prefWidth="700.0" stylesheets="@task.css" fx:controller="com.ydova.schoolapp.controller.TaskController">
+    <VBox alignment="CENTER" prefHeight="600.0" prefWidth="974.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <HBox alignment="CENTER" prefHeight="300.0" prefWidth="974.0" spacing="100.0">
+            <Button fx:id="inscription" alignment="CENTER" contentDisplay="TOP" minWidth="150.0" mnemonicParsing="false" onAction="#goToInscription" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #F9F9F9; -fx-background-radius: 15;" styleClass="button2" text="Inscription" textAlignment="CENTER" textFill="#ebe7e7">
+                <graphic>
+                    <Pane nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="100.0" style="-fx-background-radius: 100; -fx-background-position: center; -fx-background-color: linear-gradient(to right, white, blue);" styleClass="button-pane">
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="107.0">
+                            <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                                <Image url="@../../../img/main-home/add.png" />
+                            </ImageView>
+                        </HBox>
+                    </Pane>
+                </graphic>
+                <font>
+                    <Font name="Cambria Bold" size="22.0" />
+                </font>
+                <HBox.margin>
+                    <Insets />
+                </HBox.margin>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+            </Button>
+            <Button fx:id="notes" alignment="CENTER" contentDisplay="TOP" layoutX="397.0" layoutY="10.0" mnemonicParsing="false" onAction="#goToNotes" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #F9F9F9; -fx-background-radius: 15;" styleClass="button2" text="Notes" textAlignment="CENTER" textFill="#f2f0f0">
+                <graphic>
+                    <Pane nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="100.0" style="-fx-background-radius: 100; -fx-background-color: linear-gradient(to right, orange, white); -fx-background-position: center;" styleClass="button2">
+                        <padding>
+                            <Insets left="30.0" />
+                        </padding>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="107.0">
+                            <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                                <Image url="@../../../img/main-home/notes.png" />
+                            </ImageView>
+                        </HBox>
+                    </Pane>
+                </graphic>
+                <font>
+                    <Font name="Cambria Bold" size="22.0" />
+                </font>
+                <HBox.margin>
+                    <Insets />
+                </HBox.margin>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+            </Button>
+            <Button fx:id="payment" alignment="CENTER" contentDisplay="TOP" layoutX="297.0" layoutY="10.0" mnemonicParsing="false" onAction="#goToPayment" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #F9F9F9; -fx-background-radius: 15;" styleClass="button2" text="Pension" textAlignment="CENTER" textFill="#fcf9f9">
+                <graphic>
+                    <Pane nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="100.0" style="-fx-background-radius: 100; -fx-background-color: linear-gradient(to right, blue, orange); -fx-background-position: center;" styleClass="button2">
+                        <padding>
+                            <Insets left="30.0" />
+                        </padding>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="107.0">
+                            <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                                <Image url="@../../../img/main-home/payment.png" />
+                            </ImageView>
+                        </HBox>
+                    </Pane>
+                </graphic>
+                <font>
+                    <Font name="Cambria Bold" size="22.0" />
+                </font>
+                <HBox.margin>
+                    <Insets />
+                </HBox.margin>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+            </Button>
+        </HBox>
+        <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="300.0" prefWidth="974.0" spacing="100.0">
+            <Button fx:id="student" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#goToStudent" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #F9F9F9; -fx-background-radius: 15;" styleClass="button2" text="Eleves" textAlignment="CENTER" textFill="#fcf9f9">
+                <graphic>
+                    <Pane nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="100.0" style="-fx-background-radius: 100; -fx-background-color: linear-gradient(to right, green, white); -fx-background-position: center;" styleClass="button2">
+                        <padding>
+                            <Insets left="30.0" />
+                        </padding>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="107.0">
+                            <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                                <Image url="@../../../img/main-home/students.png" />
+                            </ImageView>
+                        </HBox>
+                    </Pane>
+                </graphic>
+                <font>
+                    <Font name="Cambria Bold" size="22.0" />
+                </font>
+                <HBox.margin>
+                    <Insets />
+                </HBox.margin>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+            </Button>
+            <Button fx:id="classroom" alignment="CENTER" contentDisplay="TOP" layoutX="397.0" layoutY="10.0" mnemonicParsing="false" onAction="#goToClassroom" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #F9F9F9; -fx-background-radius: 15;" styleClass="button2" text="classes" textAlignment="CENTER" textFill="#eeecec">
+                <graphic>
+                    <Pane nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="100.0" style="-fx-background-radius: 100; -fx-background-color: linear-gradient(to right, blue, green); -fx-background-position: center;" styleClass="button2">
+                        <padding>
+                            <Insets left="30.0" />
+                        </padding>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="107.0">
+                            <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                                <Image url="@../../../img/main-home/cours.png" />
+                            </ImageView>
+                        </HBox>
+                    </Pane>
+                </graphic>
+                <font>
+                    <Font name="Cambria Bold" size="22.0" />
+                </font>
+                <HBox.margin>
+                    <Insets />
+                </HBox.margin>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+            </Button>
+            <Button fx:id="statistics" alignment="CENTER" contentDisplay="TOP" layoutX="297.0" layoutY="10.0" mnemonicParsing="false" onAction="#goToStatics" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 15;" styleClass="button2" text="Bulletins" textAlignment="CENTER" textFill="#fffefe">
+                <graphic>
+                    <Pane nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="100.0" style="-fx-background-radius: 100; -fx-background-color: linear-gradient(to right, white, red); -fx-background-position: center;" styleClass="button2">
+                        <padding>
+                            <Insets left="30.0" />
+                        </padding>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="107.0">
+                            <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                                <Image url="@../../../img/main-home/analytics.png" />
+                            </ImageView>
+                        </HBox>
+                    </Pane>
+                </graphic>
+                <font>
+                    <Font name="Cambria Bold" size="22.0" />
+                </font>
+                <HBox.margin>
+                    <Insets />
+                </HBox.margin>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+            </Button>
+        </HBox>
+    </VBox>
+</AnchorPane>

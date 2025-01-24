@@ -1,14 +1,11 @@
 package com.ydova.schoolapp.controller;
 
-import com.ydova.schoolapp.entity.ClassRoom;
+import com.ydova.schoolapp.entity.Classroom;
 import com.ydova.schoolapp.entity.Level;
 import com.ydova.schoolapp.entity.Section;
 import com.ydova.schoolapp.entity.Student;
-import com.ydova.schoolapp.observer.ClassroomDataObserver;
-import com.ydova.schoolapp.observer.LevelDataObserver;
-import com.ydova.schoolapp.observer.SectionDataObserver;
-import com.ydova.schoolapp.observer.StudentDataObserver;
-import com.ydova.schoolapp.service.ClassroomService;
+
+import com.ydova.schoolapp.service.SchoolService;
 import com.ydova.schoolapp.service.StudentService;
 
 import javafx.beans.property.SimpleStringProperty;
@@ -17,7 +14,6 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.layout.StackPane;
 
@@ -27,15 +23,11 @@ import java.util.ResourceBundle;
 
 public class StudentController
     implements Initializable,
-        Controller,
-        ClassroomDataObserver,
-        StudentDataObserver,
-        LevelDataObserver,
-        SectionDataObserver {
+        Controller{
   public TextField searchTexField;
   public ComboBox<Section> section;
   public ComboBox<Level> level;
-  public ComboBox<ClassRoom> classroom1;
+  public ComboBox<Classroom> classroom1;
   public TableView<Student> studentTable;
   public TableColumn<Student, String> studentId;
   public TableColumn<Student, String> lastname;
@@ -43,15 +35,15 @@ public class StudentController
   public TableColumn<Student, Long> number;
   public TableColumn<Student, Date> birthday;
   public TableColumn<Student, Double> fee;
-  public TableColumn<Student, ClassRoom> classroom;
+  public TableColumn<Student, Classroom> classroom;
 
   String file = "classpath:/schoolapp/layout/main/main-right/student/student.fxml";
 
-  private ClassroomService classroomService;
+  private SchoolService schoolService;
   private StudentService studentService;
   private ObservableList<Section> sectionList = FXCollections.observableArrayList();
   private ObservableList<Level> levelList = FXCollections.observableArrayList();
-  private ObservableList<ClassRoom> classroomList = FXCollections.observableArrayList();
+  private ObservableList<Classroom> classroomList = FXCollections.observableArrayList();
   private ObservableList<Student> studentList = FXCollections.observableArrayList();
 
   private StackPane pane;
@@ -82,7 +74,7 @@ public class StudentController
    // classroomList = FXCollections.observableArrayList(classroomService.getAllClassroom());
    // sectionList = FXCollections.observableArrayList(classroomService.getAllSection());
    // levelList = FXCollections.observableArrayList(classroomService.getAllLevel());
-    studentList = FXCollections.observableArrayList(studentService.getAllStudents());
+    studentList = FXCollections.observableArrayList(studentService.readAll());
 
     // add items
     section.setItems(sectionList);
@@ -95,35 +87,6 @@ public class StudentController
     lastname.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getLastname()));
   }
 
-  @Override
-  public Parent getPane() {
-    return pane;
-  }
 
-  @Override
-  public Parent buildPaneRecursive() {
-  //  pane = Loader.load(resource, ctx);
-    return pane;
-  }
 
-  @Override
-  public void onClassroomUpdated(ClassRoom classRoom) {
-   // classroomList = FXCollections.observableArrayList(classroomService.getAllClassroom());
-  }
-
-  @Override
-  public void onStudentUpdated(Student student) {
-    // FIXME: 24.07.2023
-
-  }
-
-  @Override
-  public void onLevelUpdated(Level level) {
-   // levelList = FXCollections.observableArrayList(classroomService.getAllLevel());
-  }
-
-  @Override
-  public void onSectionUpdated(Section section) {
-   // sectionList = FXCollections.observableArrayList(classroomService.getAllSection());
-  }
 }

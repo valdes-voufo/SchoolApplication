@@ -6,7 +6,6 @@ import java.io.IOException;
 
 public interface Controller {
 
-  Parent getPane();
 
-  Parent buildPaneRecursive() throws IOException;
+
 }

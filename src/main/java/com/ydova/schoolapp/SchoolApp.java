@@ -2,10 +2,12 @@ package com.ydova.schoolapp;
 
 
 
-import com.ydova.schoolapp.controller.MainController;
+import com.ydova.schoolapp.views.Views;
+import com.ydova.schoolapp.views.ViewsFactory;
 import javafx.application.Application;
-import javafx.scene.Parent;
+import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 
@@ -13,16 +15,20 @@ public class SchoolApp extends Application {
   @Override
   public void start(Stage primaryStage) {
 
-    UserDAO.saveUser("sss","sss");
 
-    MainController controller = new MainController();
-    controller.buildPaneRecursive();
-    Parent root = controller.getPane();
+    BorderPane mainView = (BorderPane) ViewsFactory.getInstance(Views.MAIN);
+    ViewsFactory.getInstance(Views.SCHOOL);
 
-    Scene scene = new Scene(root, 1000, 1000);
+
+
+    Scene scene = new Scene(mainView, 1600, 1000);
     primaryStage.setScene(scene);
-    primaryStage.setTitle("JavaFX with FXML");
+    primaryStage.setTitle("College des  Arts et Metier De Loum");
+    primaryStage.requestFocus();
+    primaryStage.toFront();
     primaryStage.show();
+    primaryStage.setFullScreen(true);
+
   }
 
   public static void main(String[] args) {

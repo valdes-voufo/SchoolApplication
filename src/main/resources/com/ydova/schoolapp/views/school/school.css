@@ -1,0 +1,57 @@
+* {
+    -fx-primary-color: #007acc; /* Active blue color */
+    -fx-secondary-color: #4B6EAF; /* Secondary blue */
+    -fx-gray-color: white; /* Base gray color */
+
+    -fx-focus-color: -fx-secondary-color;
+}
+
+.tab-header-area .tab-header-background {
+    -fx-background-color: -fx-gray-color; /* Base gray for the header */
+}
+
+.tab-pane .tab:selected {
+    -fx-background-color: -fx-primary-color; /* Active blue color */
+    -fx-text-fill: white;
+    -fx-background-insets: 0 0 0 0;
+    -fx-background-radius: 0 0 0 0;
+}
+
+.tab .tab-label {
+    -fx-alignment: CENTER;
+    -fx-text-fill: black; /* Text color for tabs */
+    -fx-font-weight: bold;
+    -fx-padding: 0 10 0 10;
+    -fx-font-size: 14px;
+}
+
+.tab-pane:top *.tab-header-area {
+    -fx-padding: 0 0 0 30;
+}
+
+.tab-pane {
+    -fx-background-color: transparent;
+    -fx-tab-min-width: 100px;
+    -fx-tab-min-height: 40px;
+    -fx-tab-max-height: 40px;
+}
+
+.tab-pane .tab {
+    -fx-background-color: -fx-gray-color; /* Gray background for non-active tabs */
+    -fx-text-fill: black;
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+    -fx-border-radius: 0;
+    -fx-transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.tab-pane .tab:hover {
+    -fx-background-color: -fx-secondary-color; /* Highlight on hover */
+    -fx-cursor: hand;
+}
+
+.tab-pane:focused .tab-header-area .headers-region .tab:selected .focus-indicator {
+    -fx-border-width: 0;
+    -fx-border-insets: 0 0 0 0;
+    -fx-border-radius: 0;
+}

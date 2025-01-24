@@ -3,18 +3,17 @@ package com.ydova.schoolapp.controller;
 
 
 import com.ydova.schoolapp.Gender;
-import com.ydova.schoolapp.entity.ClassRoom;
+import com.ydova.schoolapp.entity.Classroom;
 import com.ydova.schoolapp.entity.Level;
 import com.ydova.schoolapp.entity.Section;
 import com.ydova.schoolapp.entity.Student;
-import com.ydova.schoolapp.observer.ClassroomDataObserver;
-import com.ydova.schoolapp.observer.LevelDataObserver;
-import com.ydova.schoolapp.observer.SectionDataObserver;
-import com.ydova.schoolapp.service.ClassroomService;
+
+import com.ydova.schoolapp.service.SchoolService;
 
 
+import com.ydova.schoolapp.service.ServiceFactory;
 import com.ydova.schoolapp.service.StudentService;
-import com.ydova.schoolapp.draft.AlertBuilder;
+import com.ydova.schoolapp.utils.AlertBuilder;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -34,10 +33,7 @@ import java.util.ResourceBundle;
 
 public class InscriptionController
     implements Initializable,
-        Controller,
-        ClassroomDataObserver,
-        SectionDataObserver,
-        LevelDataObserver {
+        Controller{
   public TextField lastname;
   public TextField firstname;
   public CheckBox maleCheckBox;
@@ -49,7 +45,7 @@ public class InscriptionController
   public TextField birthPlace;
   public ImageView profilPicture;
   public ChoiceBox<Year> academicYear;
-  public ChoiceBox<ClassRoom> classRoom;
+  public ChoiceBox<Classroom> classRoom;
   public ChoiceBox<Level> level;
   public ChoiceBox<Section> section;
 
@@ -64,34 +60,21 @@ String file = "classpath:/schoolapp/layout/main/main-right/inscription/inscripti
 
   private ObservableList<Section> sectionList = FXCollections.observableArrayList();
   private ObservableList<Level> levelList = FXCollections.observableArrayList();
-  private ObservableList<ClassRoom> classroomList = FXCollections.observableArrayList();
-  ClassroomService classroomService;
+  private ObservableList<Classroom> classroomList = FXCollections.observableArrayList();
+  SchoolService schoolService;
 
   public InscriptionController() {
-
-
-    this.classroomService = classroomService;
+    this.schoolService = ServiceFactory.getInstance(SchoolService.class);
   }
 
-  @Override
-  public Pane getPane() {
-    return pane;
-  }
 
-  @Override
-  public Pane buildPaneRecursive() {
-    pane = ControllerUtils.loadPane(file);
-    return pane;
-  }
 
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
-  //  classroomService.addObserver((ClassroomDataObserver) this);
-  //  classroomService.addObserver((SectionDataObserver) this);
-  //  classroomService.addObserver((LevelDataObserver) this);
- //   classroomList = FXCollections.observableArrayList(classroomService.getAllClassroom());
- //   sectionList = FXCollections.observableArrayList(classroomService.getAllSection());
- //   levelList = FXCollections.observableArrayList(classroomService.getAllLevel());
+
+    classroomList = FXCollections.observableArrayList(schoolService.readAllClassrooms());
+    sectionList = FXCollections.observableArrayList(schoolService.readAllSections());
+    levelList = FXCollections.observableArrayList(schoolService.readAllLevels());
     section.setItems(sectionList);
     level.setItems(levelList);
     classRoom.setItems(classroomList);
@@ -116,7 +99,7 @@ String file = "classpath:/schoolapp/layout/main/main-right/inscription/inscripti
             .build();
 
     if (confirmInscription()) {
-      studentService.saveStudent(student);
+      studentService.save(student);
       inscriptionSucceed();
     }
   }
@@ -179,23 +162,6 @@ String file = "classpath:/schoolapp/layout/main/main-right/inscription/inscripti
     femaleCheckBox.setSelected(true);
   }
 
-  @Override
-  public void onClassroomUpdated(ClassRoom classRoom) {
-    classroomList.clear();
-  //  classroomList.addAll(classroomService.getAllClassroom());
-  }
-
-  @Override
-  public void onSectionUpdated(Section section) {
-    sectionList.clear();
-  //  sectionList.addAll(classroomService.getAllSection());
-  }
-
-  @Override
-  public void onLevelUpdated(Level level) {
-    levelList.clear();
-  //  levelList.addAll(classroomService.getAllLevel());
-  }
 
   public void goToHome(ActionEvent actionEvent) {}
 }

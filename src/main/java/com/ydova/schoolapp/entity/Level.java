@@ -1,5 +1,8 @@
 package com.ydova.schoolapp.entity;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 import lombok.*;
 
 @Builder
@@ -8,13 +11,16 @@ import lombok.*;
 @Data
 @Setter
 @Getter
+@Entity
 public class Level {
 
-  private long levelID;
+  @Id
+ @ GeneratedValue
+  private Long levelID;
 
   private String name;
 
-  private long sectionID;
+  private Long sectionID;
 
   private double SchoolFees;
 
