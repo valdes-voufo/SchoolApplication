@@ -1,6 +1,5 @@
 package com.ydova.schoolapp.repository;
 
-import com.ydova.schoolapp.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import java.util.List;

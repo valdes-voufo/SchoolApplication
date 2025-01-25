@@ -2,7 +2,7 @@ package com.ydova.schoolapp.controller;
 
 
 
-import com.ydova.schoolapp.Gender;
+import com.ydova.schoolapp.utils.Gender;
 import com.ydova.schoolapp.entity.Classroom;
 import com.ydova.schoolapp.entity.Level;
 import com.ydova.schoolapp.entity.Section;

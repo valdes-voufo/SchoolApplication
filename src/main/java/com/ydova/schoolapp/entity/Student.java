@@ -2,8 +2,8 @@ package com.ydova.schoolapp.entity;
 
 
 
-import com.ydova.schoolapp.Gender;
-import com.ydova.schoolapp.StudentStatus;
+import com.ydova.schoolapp.utils.Gender;
+import com.ydova.schoolapp.utils.StudentStatus;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;

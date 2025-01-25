@@ -1,4 +1,4 @@
-package com.ydova.schoolapp;
+package com.ydova.schoolapp.utils;
 
 public enum Gender {
   MALE("MASCULIN"),

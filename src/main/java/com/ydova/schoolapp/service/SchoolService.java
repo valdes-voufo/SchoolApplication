@@ -23,8 +23,15 @@ public class SchoolService{
 
 
 
-    public void saveClassroom(Classroom entity) {
+    public boolean saveClassroom(Classroom entity) {
+        List<Classroom> listClassroom=  classroomRepository.readAll();
+        for (Classroom classroom : listClassroom) {
+            if (entity.getName().equals(classroom.getName())) {
+                return false;
+            }
+        }
         classroomRepository.save(entity);
+        return true;
     }
 
     public void saveLevel(Level entity) {

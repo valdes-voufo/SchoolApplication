@@ -21,13 +21,13 @@ public class SchoolApp extends Application {
 
 
 
-    Scene scene = new Scene(mainView, 1600, 1000);
+    Scene scene = new Scene(mainView, 1000, 700);
     primaryStage.setScene(scene);
     primaryStage.setTitle("College des  Arts et Metier De Loum");
     primaryStage.requestFocus();
     primaryStage.toFront();
     primaryStage.show();
-    primaryStage.setFullScreen(true);
+   // primaryStage.setFullScreen(true);
 
   }
 

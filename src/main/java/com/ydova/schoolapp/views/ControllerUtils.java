@@ -2,7 +2,7 @@ package com.ydova.schoolapp.views;
 
 
 
-import com.ydova.schoolapp.HelloVApp;
+import com.ydova.schoolapp.SchoolApp;
 import javafx.fxml.FXMLLoader;
 
 import java.io.IOException;
@@ -10,7 +10,7 @@ import java.io.IOException;
 public class ControllerUtils {
   public static <T> T loadPane(String file) {
     System.out.println(file);
-    FXMLLoader loader = new FXMLLoader(HelloVApp.class.getResource(file));
+    FXMLLoader loader = new FXMLLoader(SchoolApp.class.getResource(file));
 
       T res;
       try {

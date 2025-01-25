@@ -1,4 +1,4 @@
-package com.ydova.schoolapp;
+package com.ydova.schoolapp.repository;
 
 import lombok.Getter;
 import org.hibernate.SessionFactory;
