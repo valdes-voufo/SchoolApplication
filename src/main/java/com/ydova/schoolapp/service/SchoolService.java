@@ -34,12 +34,26 @@ public class SchoolService{
         return true;
     }
 
-    public void saveLevel(Level entity) {
+    public boolean saveLevel(Level entity) {
+        List<Level> listLevel = levelRepository.readAll();
+        for (Level level : listLevel) {
+            if (level.getName().equals(entity.getName())) {
+                return false;
+            }
+        }
         levelRepository.save(entity);
+        return true;
     }
 
-    public void saveSection(Section entity) {
+    public boolean saveSection(Section entity) {
+        List<Section> listSection = sectionRepository.readAll();
+        for (Section section : listSection) {
+            if (section.getName().equals(entity.getName())) {
+                return false;
+            }
+        }
         sectionRepository.save(entity);
+        return true;
     }
 
 
