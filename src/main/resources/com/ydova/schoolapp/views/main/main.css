@@ -1,15 +1,22 @@
 
+.main {
+    -fx-background-color : white;
+}
+
+.main {
+    -fx-background-color : white;
+}
 
 .button2
 {
-    -fx-background-color : #F5F5F5;
+    -fx-background-color : white;
     -fx-background-radius :  7;
     -fx-text-fill: black;
 }
 
 .button2:hover
 {
-    -fx-background-color :  #1E7DC1 ;
+    -fx-background-color :  #004aad ;
     -fx-background-radius :  7;
 }
 .button2:pressed
@@ -27,7 +34,7 @@
 .table-view .column-header,
 .table-view .column-header-background .filler {
     -fx-cell-size : 20;
-    -fx-background-color:   #2D75E8;
+    -fx-background-color:   #004aad;
 }
 .table-view .column-header .label{
 
@@ -61,7 +68,7 @@
 .table-view .scroll-bar:horizontal .track,
 .table-view .scroll-bar:vertical .track{
     -fx-background-color: transparent;
-    -fx-border-color:derive(  #2D75E8,80%);
+    -fx-border-color:derive(  #004aad,80%);
     -fx-background-radius: 2em;
     -fx-border-radius:2em;
 }
@@ -69,7 +76,7 @@
 /* The views scrollbar **thumb** CSS class which we drag every time (movable) */
 .table-view .scroll-bar:horizontal .thumb,
 .table-view .scroll-bar:vertical .thumb {
-    -fx-background-color:derive( #2D75E8,90%);
+    -fx-background-color:derive( #004aad,90%);
     -fx-background-insets: 2, 0, 0;
     -fx-background-radius: 2em;
 
@@ -92,9 +99,10 @@
 }
 .linear-grad
 {
-    -fx-background-color: #F5F5F5;
+    -fx-background-color: white;
 }
 
 .header{
     -fx-border-color: gray;
 }
+
