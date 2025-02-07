@@ -15,10 +15,10 @@
         <property name="hibernate.hbm2ddl.auto">update</property> <!-- Creates/Updates tables automatically -->
         <property name="hibernate.show_sql">true</property> <!-- Show SQL in console -->
         <property name="hibernate.format_sql">true</property> <!-- Format SQL for better readability -->
-        <mapping class="com.ydova.schoolapp.entity.Student"/>
-        <mapping class="com.ydova.schoolapp.entity.Classroom"/>
-        <mapping class="com.ydova.schoolapp.entity.Section"/>
-        <mapping class="com.ydova.schoolapp.entity.Level"/>
+        <mapping class="com.ydova.schoolapp.server.entity.Student"/>
+        <mapping class="com.ydova.schoolapp.server.entity.Classroom"/>
+        <mapping class="com.ydova.schoolapp.server.entity.Section"/>
+        <mapping class="com.ydova.schoolapp.server.entity.Level"/>
 
 
     </session-factory>

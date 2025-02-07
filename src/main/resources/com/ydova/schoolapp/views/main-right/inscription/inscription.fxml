@@ -19,7 +19,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="com.ydova.schoolapp.controller.InscriptionController">
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="com.ydova.schoolapp.client.views.InscriptionController">
    <center>
       <TabPane>
          <tabs>

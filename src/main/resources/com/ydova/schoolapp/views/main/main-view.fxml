@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane styleClass="main" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ydova.schoolapp.controller.MainController">
+<BorderPane styleClass="main" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ydova.schoolapp.client.views.MainController">
    <center>
       <AnchorPane minHeight="670.0" minWidth="600.0" style="-fx-background-color: white;" stylesheets="@../school/school.css">
          <BorderPane.margin>

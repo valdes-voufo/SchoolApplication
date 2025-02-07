@@ -2,10 +2,9 @@ package com.ydova.schoolapp;
 
 
 
-import com.ydova.schoolapp.views.Views;
-import com.ydova.schoolapp.views.ViewsFactory;
+import com.ydova.schoolapp.client.views.Views;
+import com.ydova.schoolapp.client.views.ViewsFactory;
 import javafx.application.Application;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -21,7 +20,7 @@ public class SchoolApp extends Application {
 
 
 
-    Scene scene = new Scene(mainView, 1000, 700);
+    Scene scene = new Scene(mainView, 1200, 900);
     primaryStage.setScene(scene);
     primaryStage.setTitle("College des  Arts et Metier De Loum");
     primaryStage.requestFocus();

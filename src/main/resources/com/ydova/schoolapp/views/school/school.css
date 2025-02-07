@@ -25,33 +25,92 @@
     -fx-font-size: 14px;
 }
 
-.tab-pane:top *.tab-header-area {
-    -fx-padding: 0 0 0 30;
-}
-
 .tab-pane {
-    -fx-background-color: transparent;
+    -fx-tab-min-height: 30px; /* Augmenter la hauteur */
+    -fx-tab-max-height: 30px;
     -fx-tab-min-width: 100px;
-    -fx-tab-min-height: 40px;
-    -fx-tab-max-height: 40px;
 }
 
-.tab-pane .tab {
-    -fx-background-color: -fx-gray-color; /* Gray background for non-active tabs */
-    -fx-text-fill: black;
-    -fx-border-color: transparent;
-    -fx-border-width: 0;
-    -fx-border-radius: 0;
-    -fx-transition: background-color 0.3s ease; /* Smooth transition */
+
+.tab {
+    -fx-background-color: white; /* Couleur de base */
+    -fx-border-color: #888; /* Bordure */
+    -fx-border-width: 0.5px;
+    -fx-padding: 5px 15px;
+    -fx-border-radius: 7;
+    -fx-start-margin: 5px;
 }
 
-.tab-pane .tab:hover {
-    -fx-background-color: -fx-secondary-color; /* Highlight on hover */
-    -fx-cursor: hand;
+.tab:selected {
+    -fx-background-color: #0077cc; /* Couleur active */
+    -fx-text-fill: white;
 }
 
-.tab-pane:focused .tab-header-area .headers-region .tab:selected .focus-indicator {
-    -fx-border-width: 0;
-    -fx-border-insets: 0 0 0 0;
-    -fx-border-radius: 0;
+.tab:hover {
+    -fx-background-color: #aae0ff; /* Couleur au survol */
 }
+
+.tab-label {
+    -fx-alignment: CENTER; /* Centrer le texte */
+}
+
+/* Appliquer un style général au TableView */
+.table-view {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #b0b0b0;
+    -fx-border-width: 2px;
+    -fx-border-radius: 7px;
+    -fx-padding: 5px;
+    -fx-font-family: "Arial";
+    -fx-font-size: 14px;
+}
+
+/* Style des colonnes */
+.table-column {
+    -fx-alignment: CENTER;
+}
+
+/* Style de l'en-tête */
+.table-view .column-header-background {
+
+    -fx-background-radius: 7px 7px 0px 0px;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+/* Style des lignes */
+.table-row-cell {
+    -fx-background-color: #f8f9fa; /* Gris clair */
+    -fx-border-color: #ddd;
+}
+
+/* Alternance des couleurs des lignes */
+.table-row-cell:odd {
+    -fx-background-color: #e9ecef; /* Gris plus foncé */
+}
+
+/* Style des lignes sélectionnées */
+.table-row-cell:selected {
+    -fx-background-color: #d4edda; /* Vert */
+    -fx-text-fill: white;
+}
+
+/* Style du texte dans les cellules */
+.table-cell {
+    -fx-padding: 5px;
+    -fx-alignment: CENTER;
+}
+
+/* Style des lignes survolées */
+.table-row-cell:hover {
+    -fx-background-color: #d4edda; /* Vert clair */
+}
+/* Augmenter la hauteur des lignes */
+.table-row-cell {
+    -fx-cell-size: 35px; /* Augmente la hauteur des lignes */
+}
+

@@ -19,19 +19,19 @@ module com.ydova.schoolapp {
 
     opens com.ydova.schoolapp to javafx.fxml;
     exports com.ydova.schoolapp;
-    exports com.ydova.schoolapp.entity ;
-    exports com.ydova.schoolapp.service ;
+    exports com.ydova.schoolapp.server.entity;
+    exports com.ydova.schoolapp.server.service;
 
 
-    exports com.ydova.schoolapp.controller to javafx.fxml;
 
 
-    opens com.ydova.schoolapp.controller to javafx.fxml;
-    opens com.ydova.schoolapp.entity to org.hibernate.orm.core;
-    exports com.ydova.schoolapp.views to javafx.fxml;
-    opens com.ydova.schoolapp.views to javafx.fxml;
-    exports com.ydova.schoolapp.utils;
-    opens com.ydova.schoolapp.utils to javafx.fxml;
-    exports com.ydova.schoolapp.repository;
-    opens com.ydova.schoolapp.repository to javafx.fxml;
+
+
+    opens com.ydova.schoolapp.server.entity to org.hibernate.orm.core;
+    exports com.ydova.schoolapp.client.views to javafx.fxml;
+    opens com.ydova.schoolapp.client.views to javafx.fxml;
+    exports com.ydova.schoolapp.client.utils;
+    opens com.ydova.schoolapp.client.utils to javafx.fxml;
+    exports com.ydova.schoolapp.server.repository;
+    opens com.ydova.schoolapp.server.repository to javafx.fxml;
 }
