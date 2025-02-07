@@ -20,7 +20,7 @@ public class SchoolApp extends Application {
 
 
 
-    Scene scene = new Scene(mainView, 1200, 900);
+    Scene scene = new Scene(mainView, 700, 700);
     primaryStage.setScene(scene);
     primaryStage.setTitle("College des  Arts et Metier De Loum");
     primaryStage.requestFocus();

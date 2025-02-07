@@ -8,6 +8,7 @@ public class RepositoryFactory {
 
    @SuppressWarnings("unchecked")
     public  static <T> T getInstance(Class<T> clazz) {
+       // si javais deja crrer je revoies l instance que javais dej creer
         if(repositories.containsKey(clazz)) {
             return  (T) repositories.get(clazz);
         }
@@ -30,6 +31,11 @@ public class RepositoryFactory {
             LevelRepository levelRepository = new LevelRepository();
             repositories.put(LevelRepository.class, levelRepository);
             return (T) levelRepository;
+        }
+        else if (clazz.equals(CouresRepository.class)) {
+            CouresRepository couresRepository = new CouresRepository();
+            repositories.put(CouresRepository.class, couresRepository);
+            return (T) couresRepository;
         }
         else {
             throw new IllegalArgumentException("Unsupported repository type: " + clazz);
