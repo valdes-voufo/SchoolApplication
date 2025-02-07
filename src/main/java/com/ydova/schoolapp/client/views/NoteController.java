@@ -8,10 +8,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
@@ -158,11 +155,7 @@ public class NoteController implements Initializable, Controller {
 
   @Override
   public void initialize(URL location, ResourceBundle resources) {
-    // subject.getItems().addAll(Helpers.matieres);
-    // sequence.getItems().addAll(Helpers.sequences);
-    // school.getItems().addAll(Helpers.classes);
-    label.setText("Fiche de Notes");
-    // focus(AllTextFields);
+
 
   }
 
@@ -176,4 +169,12 @@ public class NoteController implements Initializable, Controller {
   }
 
 
+  public void inportNotes(ActionEvent actionEvent) {
+    TableView<ExcelEmailImporter.Email> tableView = new TableView<>();
+
+    ExcelEmailImporter.importAndDisplayEmailsFromExcel(tableView);
+  }
+
+  public void exportNotes(ActionEvent actionEvent) {
+  }
 }

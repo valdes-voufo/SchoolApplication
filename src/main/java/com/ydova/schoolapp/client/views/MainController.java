@@ -25,8 +25,8 @@ public class MainController implements Controller {
     //  mainContentController.switchContent(ctx.getBean(HomePageController.class).getPane());
   }
 
-  public void goToDashboard(ActionEvent actionEvent) {
-    //  mainContentController.switchContent(ctx.getBean(DashboardController.class).getPane());
+  public void goToNotes(ActionEvent actionEvent) {
+   switchContent((Parent)ViewsFactory.getInstance(Views.NOTES));
   }
 
   public void goToTask(ActionEvent actionEvent) {

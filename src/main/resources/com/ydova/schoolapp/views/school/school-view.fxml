@@ -20,21 +20,17 @@
 
             <Tab closable="false" text="Section">
                <AnchorPane minHeight="0.0" minWidth="0.0" style="-fx-background-color: white;">
-                  <HBox prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
-                        AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="30.0">
-                     <TableView fx:id="sectionTable" onMouseClicked="#selectSection" prefHeight="745.0"
-                                prefWidth="634.0" style="-fx-border-radius: 7;">
+                  <HBox prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="30.0">
+                     <TableView fx:id="sectionTable" onMouseClicked="#selectSection" prefHeight="745.0" prefWidth="634.0" style="-fx-border-radius: 7;">
                         <columns>
-                           <TableColumn fx:id="sectionCol" editable="false" prefWidth="150.0" text="ID"/>
-                           <TableColumn fx:id="sectionNameCol" prefWidth="150.0" text="Name"/>
+                           <TableColumn fx:id="sectionCol" editable="false" prefWidth="150.0" text="ID" />
+                           <TableColumn fx:id="sectionNameCol" prefWidth="150.0" text="Name" />
                         </columns>
                      </TableView>
                      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false"
-                                onAction="#addSection" prefHeight="92.0" prefWidth="292.0" text="Add Sections"
-                                VBox.vgrow="ALWAYS">
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#addSection" prefHeight="92.0" prefWidth="292.0" text="Add Sections" VBox.vgrow="ALWAYS">
                            <font>
-                              <Font size="24.0"/>
+                              <Font size="24.0" />
                            </font>
                         </Button>
                      </VBox>
@@ -52,10 +48,9 @@
                         </columns>
                      </TableView>
                      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#addLevel"
-                                prefHeight="92.0" prefWidth="292.0" text="Add Level" VBox.vgrow="ALWAYS">
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#addLevel" prefHeight="92.0" prefWidth="292.0" text="Add Level" VBox.vgrow="ALWAYS">
                            <font>
-                              <Font size="24.0"/>
+                              <Font size="24.0" />
                            </font>
                         </Button>
                      </VBox>
@@ -65,19 +60,16 @@
 
             <Tab text="Classes">
                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                  <HBox prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0"
-                        AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="30.0">
+                  <HBox prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="30.0">
                      <TableView fx:id="classTable" prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
                         <columns>
-                           <TableColumn fx:id="classroomCol" prefWidth="150.0" text="classes"/>
+                           <TableColumn fx:id="classroomCol" prefWidth="150.0" text="classes" />
                         </columns>
                      </TableView>
                      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false"
-                                onAction="#addClassroom" prefHeight="92.0" prefWidth="292.0" text="Add Classroom"
-                                VBox.vgrow="ALWAYS">
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#addClassroom" prefHeight="92.0" prefWidth="292.0" text="Add Classroom" VBox.vgrow="ALWAYS">
                            <font>
-                              <Font size="24.0"/>
+                              <Font size="24.0" />
                            </font>
                         </Button>
                      </VBox>
@@ -86,19 +78,16 @@
             </Tab>
             <Tab text="Matieres">
                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                  <HBox prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="30.0"
-                        AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="30.0">
+                  <HBox prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="30.0">
                      <TableView fx:id="classTable1" prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
                         <columns>
-                           <TableColumn fx:id="classroomCol1" prefWidth="150.0" text="classes"/>
+                           <TableColumn fx:id="classroomCol1" prefWidth="150.0" text="classes" />
                         </columns>
                      </TableView>
                      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false"
-                                onAction="#addCours" prefHeight="92.0" prefWidth="292.0" text="Add Cours"
-                                VBox.vgrow="ALWAYS">
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#addCours" prefHeight="92.0" prefWidth="292.0" text="Add Cours" VBox.vgrow="ALWAYS">
                            <font>
-                              <Font size="24.0"/>
+                              <Font size="24.0" />
                            </font>
                         </Button>
                      </VBox>

@@ -1,5 +1,7 @@
 package com.ydova.schoolapp.client.views;
 
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TabPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 
@@ -23,6 +25,10 @@ public class ViewsFactory {
                 BorderPane main = ControllerUtils.loadPane("views/main/main-view.fxml");
                 views.put(view,main);
                 return  main;
+            case NOTES:
+                TabPane notes = ControllerUtils.loadPane("views/notes/notes-page.fxml");
+                views.put(view,notes);
+                return  notes;
 
             case SCHOOL:
                 AnchorPane school = ControllerUtils.loadPane("views/school/school-view.fxml");

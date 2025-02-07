@@ -47,7 +47,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="dashboard" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="20.0" layoutY="85.0" mnemonicParsing="false" onAction="#goToDashboard" prefHeight="50.0" prefWidth="200.0" styleClass="button2" text="Notes" textAlignment="CENTER" textFill="#fffbfb">
+            <Button fx:id="dashboard" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="20.0" layoutY="85.0" mnemonicParsing="false" onAction="#goToNotes" prefHeight="50.0" prefWidth="200.0" styleClass="button2" text="Notes" textAlignment="CENTER" textFill="#fffbfb">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <Image url="@../../img/navbar/grade.png" />
