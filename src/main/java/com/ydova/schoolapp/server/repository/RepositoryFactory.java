@@ -37,6 +37,21 @@ public class RepositoryFactory {
             repositories.put(CouresRepository.class, couresRepository);
             return (T) couresRepository;
         }
+        else if (clazz.equals(GradleRepository.class)) {
+            GradleRepository gradleRepository = new GradleRepository();
+            repositories.put(GradleRepository.class, gradleRepository);
+            return (T) gradleRepository;
+        }
+        else if (clazz.equals(TeacherRepository.class)) {
+            TeacherRepository teacherRepository = new TeacherRepository();
+            repositories.put(TeacherRepository.class, teacherRepository);
+            return (T) teacherRepository;
+        }
+        else if (clazz.equals(UserRepository.class)) {
+            UserRepository userRepository = new UserRepository();
+            repositories.put(UserRepository.class, userRepository);
+            return (T) userRepository;
+        }
         else {
             throw new IllegalArgumentException("Unsupported repository type: " + clazz);
         }

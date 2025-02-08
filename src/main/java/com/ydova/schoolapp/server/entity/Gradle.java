@@ -1,5 +1,6 @@
 package com.ydova.schoolapp.server.entity;
 
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -12,16 +13,13 @@ import lombok.*;
 @Setter
 @Getter
 @Entity
-public class Section {
+public class Gradle {
 
-  @Id
-  @GeneratedValue
-  public Long sectionID;
+    @GeneratedValue
+    @Id
+    public long id;
+    public long courseId;
+    public int value;
 
-  public String name;
 
-  @Override
-  public String toString() {
-    return name;
-  }
 }

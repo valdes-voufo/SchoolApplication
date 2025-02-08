@@ -1,5 +1,6 @@
 package com.ydova.schoolapp.server.entity;
 
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -12,16 +13,11 @@ import lombok.*;
 @Setter
 @Getter
 @Entity
-public class Section {
+public class User {
 
-  @Id
-  @GeneratedValue
-  public Long sectionID;
-
-  public String name;
-
-  @Override
-  public String toString() {
-    return name;
-  }
+    @Id
+    @GeneratedValue
+    public long id;
+    public String firstname;
+    public String lastname;
 }
