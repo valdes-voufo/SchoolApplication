@@ -16,9 +16,9 @@ public class Classroom {
 
   @Id
   @GeneratedValue
-  public Long classRoomID;
+  private Long classRoomID;
   private String name;
-  public Long levelID;
+  private Long levelID;
 
   @Override
   public String toString() {

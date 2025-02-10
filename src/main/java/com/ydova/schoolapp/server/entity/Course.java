@@ -15,11 +15,11 @@ import lombok.*;
 
 public class Course {
 
-   public String name;
+   private String name;
 
     @Id
     @GeneratedValue
-   public Long courseId;
+   private Long courseId;
 
     @Override
     public String toString() {

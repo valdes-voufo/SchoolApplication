@@ -37,10 +37,10 @@ public class RepositoryFactory {
             repositories.put(CouresRepository.class, couresRepository);
             return (T) couresRepository;
         }
-        else if (clazz.equals(GradleRepository.class)) {
-            GradleRepository gradleRepository = new GradleRepository();
-            repositories.put(GradleRepository.class, gradleRepository);
-            return (T) gradleRepository;
+        else if (clazz.equals(GradeRepository.class)) {
+            GradeRepository gradeRepository = new GradeRepository();
+            repositories.put(GradeRepository.class, gradeRepository);
+            return (T) gradeRepository;
         }
         else if (clazz.equals(TeacherRepository.class)) {
             TeacherRepository teacherRepository = new TeacherRepository();

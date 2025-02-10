@@ -13,13 +13,16 @@ import lombok.*;
 @Setter
 @Getter
 @Entity
-public class Gradle {
 
-    @GeneratedValue
+public class StudentSimple {
     @Id
-    public long id;
-    public long courseId;
-    public int value;
+    @GeneratedValue
+    private long id;
+    private String lastname;
+    private String firstname;
 
-
+    @Override
+    public String toString() {
+        return lastname + " " + firstname;
+    }
 }
