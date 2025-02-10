@@ -1,6 +1,5 @@
 package com.ydova.schoolapp.server.service;
 
-import com.ydova.schoolapp.server.entity.Student;
 import com.ydova.schoolapp.server.entity.User;
 import com.ydova.schoolapp.server.repository.RepositoryFactory;
 import com.ydova.schoolapp.server.repository.UserRepository;

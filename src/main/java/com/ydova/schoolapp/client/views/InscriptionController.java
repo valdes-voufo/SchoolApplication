@@ -6,8 +6,8 @@ import com.ydova.schoolapp.client.utils.Gender;
 import com.ydova.schoolapp.server.entity.Classroom;
 import com.ydova.schoolapp.server.entity.Level;
 import com.ydova.schoolapp.server.entity.Section;
-import com.ydova.schoolapp.server.entity.Student;
 
+import com.ydova.schoolapp.server.entity.Student;
 import com.ydova.schoolapp.server.service.SchoolService;
 
 
@@ -92,10 +92,6 @@ String file = "classpath:/schoolapp/layout/main/main-right/inscription/inscripti
         Student.builder()
             .lastname(lastname.getText())
             .firstname(firstname.getText())
-            .gender(getGender())
-            .adresse(address.getText())
-            .birthDate(dateOfBirth.getValue())
-            .birthPlace(birthPlace.getText())
             .build();
 
     if (confirmInscription()) {

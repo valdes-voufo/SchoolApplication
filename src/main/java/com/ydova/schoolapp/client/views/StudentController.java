@@ -3,8 +3,8 @@ package com.ydova.schoolapp.client.views;
 import com.ydova.schoolapp.server.entity.Classroom;
 import com.ydova.schoolapp.server.entity.Level;
 import com.ydova.schoolapp.server.entity.Section;
-import com.ydova.schoolapp.server.entity.Student;
 
+import com.ydova.schoolapp.server.entity.Student;
 import com.ydova.schoolapp.server.service.SchoolService;
 import com.ydova.schoolapp.server.service.StudentService;
 

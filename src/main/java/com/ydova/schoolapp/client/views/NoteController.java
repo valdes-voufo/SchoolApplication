@@ -1,8 +1,8 @@
 package com.ydova.schoolapp.client.views;
 
-import com.ydova.schoolapp.server.entity.Student;
 import com.ydova.schoolapp.client.utils.messages.NoteMessage;
 
+import com.ydova.schoolapp.server.entity.Student;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -112,7 +112,7 @@ public class NoteController implements Initializable, Controller {
 
     textField.setPrefHeight(62.0);
     textField.setPrefWidth(218.0);
-    textField.setId(String.valueOf(student.getStudentId()));
+    textField.setId("djdd");
     notesMap.put(student, textField);
     hbox.getChildren()
         .addAll(nomPrenomLabel, matriculeLabel, matiereLabel, sequenceLabel, textField);

@@ -38,16 +38,16 @@ public class MainStudentController implements Controller {
 
   @FXML
   public void initialize() {
-    studentId.setCellValueFactory(
-        cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().getStudentId())));
+  //  studentId.setCellValueFactory(
+    //    cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().getStudentId())));
 
     lastname.setCellValueFactory(
         cellData -> new SimpleStringProperty(cellData.getValue().getLastname()));
     firstname.setCellValueFactory(
         cellData -> new SimpleStringProperty(cellData.getValue().getFirstname()));
 
-    fee.setCellValueFactory(
-        cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().getStudentFee())));
+  //  fee.setCellValueFactory(
+  //      cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().getStudentFee())));
     studentTable.setItems(FXCollections.observableArrayList(this.service.readAll()));
 
     // Listen for database changes and update the TableView
@@ -55,7 +55,7 @@ public class MainStudentController implements Controller {
     ObservableList<Student> studentsList =FXCollections.observableList( service.readAll());
     FilteredList<Student> filteredData = new FilteredList<>(studentsList, b -> true);
 
-    searchTexField
+  /*  searchTexField
         .textProperty()
         .addListener(
             (observable, oldValue, newValue) -> {
@@ -75,7 +75,7 @@ public class MainStudentController implements Controller {
 
                     } else return student.getLastname().toLowerCase().contains(lowerCaseFilter);
                   });
-            });
+            });*/
 
     SortedList<Student> sortedData = new SortedList<>(filteredData);
     sortedData.comparatorProperty().bind(studentTable.comparatorProperty());
