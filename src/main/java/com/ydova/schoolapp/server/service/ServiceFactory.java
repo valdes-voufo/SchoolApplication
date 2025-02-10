@@ -22,9 +22,19 @@ public class ServiceFactory {
         }
         // Create and store a new instance if not found
       else   if (clazz.equals(SchoolService.class)) {
-            SchoolService studentService = new SchoolService();
-            services.put(clazz, studentService);
-            return (T) studentService;
+            SchoolService schoolService = new SchoolService();
+            services.put(clazz, schoolService);
+            return (T) schoolService;
+        }
+        else   if (clazz.equals(UserService.class)) {
+            UserService userService = new UserService();
+            services.put(clazz, userService);
+            return (T) userService;
+        }
+        else   if (clazz.equals(GradeService.class)) {
+            GradeService gradeService = new GradeService();
+            services.put(clazz, gradeService);
+            return (T) gradeService;
         }
         else {
             throw new IllegalArgumentException("No implementation available for: " + clazz.getName());

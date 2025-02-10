@@ -1,10 +1,10 @@
 package com.ydova.schoolapp.server.entity;
 
 public class School {
-    public String schoolName;
-    public String schoolAddress;
-    public String BP;
-    public String telephone;
-    public String webseiteURL;
+    private String schoolName;
+    private  String schoolAddress;
+    private  String BP;
+    private  String telephone;
+    private  String webseiteURL;
 
 }

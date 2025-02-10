@@ -17,7 +17,12 @@ public class User {
 
     @Id
     @GeneratedValue
-    public long id;
-    public String firstname;
-    public String lastname;
+    private long id;
+    private String firstname;
+    private String lastname;
+
+    @Override
+    public String toString() {
+        return firstname + " " + lastname;
+    }
 }

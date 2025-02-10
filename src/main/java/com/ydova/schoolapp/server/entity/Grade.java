@@ -13,11 +13,14 @@ import lombok.*;
 @Setter
 @Getter
 @Entity
-public class Teacher {
+public class Grade {
 
-    @Id
     @GeneratedValue
+    @Id
     private long id;
-    private String lastname;
-    private String firstname;
+    private long courseId;
+    private int value;
+
+
+
 }

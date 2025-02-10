@@ -16,9 +16,9 @@ public class Section {
 
   @Id
   @GeneratedValue
-  public Long sectionID;
+  private  Long sectionID;
 
-  public String name;
+  private String name;
 
   @Override
   public String toString() {

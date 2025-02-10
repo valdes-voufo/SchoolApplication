@@ -12,7 +12,7 @@ public class SchoolService{
     private final CouresRepository couresRepository;
     private final TeacherRepository teacherRepository;
     private final UserRepository userRepository;
-    private final GradleRepository gradleRepository;
+    private final GradeRepository gradeRepository;
 
     public SchoolService() {
         this.couresRepository = RepositoryFactory.getInstance(CouresRepository.class);
@@ -20,7 +20,7 @@ public class SchoolService{
         this.levelRepository = RepositoryFactory.getInstance(LevelRepository.class);
         this.sectionRepository = RepositoryFactory.getInstance(SectionRepository.class);
         this.teacherRepository = RepositoryFactory.getInstance(TeacherRepository.class);
-        this.gradleRepository = RepositoryFactory.getInstance(GradleRepository.class);
+        this.gradeRepository = RepositoryFactory.getInstance(GradeRepository.class);
         this.userRepository = RepositoryFactory.getInstance(UserRepository.class);
 
     }
