@@ -9,12 +9,12 @@ public class SchoolService{
     private final ClassroomRepository classroomRepository;
     private final SectionRepository sectionRepository;
     private final LevelRepository levelRepository;
-    private final CouresRepository couresRepository;
+    private final CourseRepository courseRepository;
     private final TeacherRepository teacherRepository;
 
 
     public SchoolService() {
-        this.couresRepository = RepositoryFactory.getInstance(CouresRepository.class);
+        this.courseRepository = RepositoryFactory.getInstance(CourseRepository.class);
         this.classroomRepository = RepositoryFactory.getInstance(ClassroomRepository.class);
         this.levelRepository = RepositoryFactory.getInstance(LevelRepository.class);
         this.sectionRepository = RepositoryFactory.getInstance(SectionRepository.class);
@@ -56,14 +56,14 @@ public class SchoolService{
         return true;
     }
 
-    public boolean saveCoures(Course entity) {
-        List<Course> listCoures = couresRepository.readAll();
-        for (Course course : listCoures) {
+    public boolean saveCourse(Course entity) {
+        List<Course> courses = courseRepository.readAll();
+        for (Course course : courses) {
             if (entity.getName().equals(course.getName())) {
                 return false;
             }
         }
-        couresRepository.save(entity);
+        courseRepository.save(entity);
         return true;
     }
 
@@ -91,7 +91,9 @@ public class SchoolService{
     public void updateSection(Section entity) {
         sectionRepository.update(entity);
     }
-    public void updateCourses(Course entity) {couresRepository.update(entity);}
+    public void updateCourse(Course entity) {
+        courseRepository.update(entity);
+    }
     public void updateTeacher(Teacher entity) {teacherRepository.update(entity);}
 
 
@@ -105,7 +107,9 @@ public class SchoolService{
     public Section readSection(Long aLong) {
         return sectionRepository.read(aLong);
     }
-    public Course readCoures(Long aLong) {return couresRepository.read(aLong);}
+    public Course readCourse(Long id) {
+        return courseRepository.read(id);
+    }
     public Teacher readTeacher(Long aLong) {return teacherRepository.read(aLong);}
 
     public List<Classroom> readAllClassrooms() {
@@ -117,7 +121,9 @@ public class SchoolService{
     public List<Section> readAllSections() {
         return sectionRepository.readAll();
     }
-    public List<Course> readAllCoures() {return couresRepository.readAll();}
+    public List<Course> readAllCourses() {
+        return courseRepository.readAll();
+    }
     public List<Teacher> readAllTeachers() {return teacherRepository.readAll();}
 
 
@@ -131,7 +137,9 @@ classroomRepository.delete(aLong);
     public void deleteSection(Long aLong) {
         sectionRepository.delete(aLong);
     }
-    public void deleteCoures(Long aLong) {couresRepository.delete(aLong);}
+    public void deleteCourse(Long id) {
+        courseRepository.delete(id);
+    }
     public void deleteTeacher(Long aLong) {teacherRepository.delete(aLong);}
 
 
