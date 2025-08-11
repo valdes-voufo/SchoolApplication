@@ -32,10 +32,10 @@ public class RepositoryFactory {
             repositories.put(LevelRepository.class, levelRepository);
             return (T) levelRepository;
         }
-        else if (clazz.equals(CouresRepository.class)) {
-            CouresRepository couresRepository = new CouresRepository();
-            repositories.put(CouresRepository.class, couresRepository);
-            return (T) couresRepository;
+        else if (clazz.equals(CourseRepository.class)) {
+            CourseRepository courseRepository = new CourseRepository();
+            repositories.put(CourseRepository.class, courseRepository);
+            return (T) courseRepository;
         }
         else if (clazz.equals(GradeRepository.class)) {
             GradeRepository gradeRepository = new GradeRepository();
